@@ -23,6 +23,6 @@ rjm_comment_thread_close:                     Close thread
 rjm_comment_thread_open:                      Open thread
 rjm_comment_thread_comment_count:             %count% comment|%count% comments
 rjm_comment_comment_edit:                     Edit
-rjm_comment_comment_delete:                   Delete comment
-rjm_comment_comment_undelete:                 Undelete comment
+rjm_comment_comment_delete:                   Delete
+rjm_comment_comment_undelete:                 Undelete
 rjm_comment_comment_deleted:                  "[deleted]"

@@ -40,6 +40,20 @@ interface VotableCommentInterface extends CommentInterface
     public function getScore();
 
     /**
+     * Get the total number of likes
+     *
+     * @return integer
+     */
+    public function getLikes();
+
+    /**
+     * Get the total number of dislikes
+     *
+     * @return integer
+     */
+    public function getDislikes();
+
+    /**
      * Increments the comment score by the provided
      * value.
      *

@@ -446,6 +446,7 @@ class ThreadController extends Controller
      */
     public function postThreadCommentsAction(Request $request, $id)
     {
+        /** @var $thread ThreadInterface */
         $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
         if (!$thread) {
             throw new NotFoundHttpException(sprintf('Thread with identifier of "%s" does not exist', $id));
@@ -461,6 +462,10 @@ class ThreadController extends Controller
 
         if ($form->isValid()) {
             $commentManager->saveComment($comment);
+
+            if (!$this->getRequest()->isXmlHttpRequest()) {
+                return new \Symfony\Component\HttpFoundation\RedirectResponse($thread->getPermalink());
+            }
 
             return $this->getViewHandler()->handle($this->onCreateCommentSuccess($form, $id, $parent));
         }
@@ -487,7 +492,7 @@ class ThreadController extends Controller
 
         $view = View::create()
             ->setData(array(
-                'commentScore' => $comment->getScore(),
+                'comment' => $comment,
             ))
             ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_votes'));
 

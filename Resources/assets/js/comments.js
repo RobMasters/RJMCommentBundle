@@ -42,6 +42,7 @@
  */
 
 (function(window, $, easyXDM){
+    console.log('loading comments js...');
     "use strict";
     var RJM_COMMENT = {
         /**
@@ -105,6 +106,7 @@
          * Initialize the event listeners.
          */
         initializeListeners: function() {
+
             RJM_COMMENT.thread_container.on('submit',
                 'form.rjm_comment_comment_new_form',
                 function(e) {
@@ -165,13 +167,16 @@
                         form_data.url,
                         {},
                         function(data) {
-                            var commentBody = $(that).parent().next();
+                            var commentBody = $(that).parent().parent().next();
 
                             // save the old comment for the cancel function
                             commentBody.data('original', commentBody.html());
 
                             // show the edit form
                             commentBody.html(data);
+
+                            // hide reply button
+                            commentBody.next().toggle();
                         }
                     );
                 }
@@ -187,6 +192,9 @@
                         RJM_COMMENT.serializeObject(this),
                         // success
                         function(data) {
+                            // show reply button
+                            that.parent().parent().next().toggle();
+
                             RJM_COMMENT.editComment(data);
                         },
 
@@ -194,6 +202,7 @@
                         function(data, statusCode) {
                             var parent = that.parent();
                             parent.after(data);
+                            parent.parent().next().toggle();
                             parent.remove();
                         }
                     );
@@ -210,10 +219,9 @@
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.rjm_comment_comment_vote',
+                '.rjm_comment_comment_vote:not(.disabled)',
                 function(e) {
                     var form_data = $(this).data();
-
                     // Get the form
                     RJM_COMMENT.get(
                         form_data.url,
@@ -328,6 +336,7 @@
 
         cancelEditComment: function(commentBody) {
             commentBody.html(commentBody.data('original'));
+            commentBody.next().toggle();
         },
 
         /**
@@ -465,6 +474,7 @@
 
     // set the appropriate base url
     RJM_COMMENT.base_url = window.rjm_comment_thread_api_base_url;
+
 
     // Load the comment if there is a thread id defined.
     if(typeof window.rjm_comment_thread_id != "undefined") {
