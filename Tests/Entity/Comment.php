@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,10 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Entity;
+namespace RJM\CommentBundle\Tests\Entity;
 
-use FOS\CommentBundle\Entity\Comment as BaseComment,
-    FOS\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Entity\Comment as BaseComment,
+    RJM\CommentBundle\Model\ThreadInterface;
 
 class Comment extends BaseComment
 {

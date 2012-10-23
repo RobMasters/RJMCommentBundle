@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,14 +9,14 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle;
+namespace RJM\CommentBundle;
 
-use FOS\CommentBundle\DependencyInjection\Compiler\SortingPass;
+use RJM\CommentBundle\DependencyInjection\Compiler\SortingPass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 
-class FOSCommentBundle extends Bundle
+class RJMCommentBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

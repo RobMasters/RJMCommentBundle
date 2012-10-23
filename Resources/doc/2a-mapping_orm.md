@@ -13,7 +13,7 @@ For example:
 namespace MyProject\MyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Comment as BaseComment;
+use RJM\CommentBundle\Entity\Comment as BaseComment;
 
 /**
  * @ORM\Entity
@@ -47,7 +47,7 @@ And the Thread:
 namespace MyProject\MyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Thread as BaseThread;
+use RJM\CommentBundle\Entity\Thread as BaseThread;
 
 /**
  * @ORM\Entity
@@ -78,7 +78,7 @@ fos_comment:
             thread: MyProject\MyBundle\Entity\Thread
 
 assetic:
-    bundles: [ "FOSCommentBundle" ]     
+    bundles: [ "RJMCommentBundle" ]
 ```
 
 Or if you prefer XML:
@@ -95,7 +95,7 @@ Or if you prefer XML:
 </fos_comment:config>
 
 <assetic:config>
-    <assetic:bundle name="FOSCommentBundle" />
+    <assetic:bundle name="RJMCommentBundle" />
 </assetic:config>
 ```
 ### Back to the main step

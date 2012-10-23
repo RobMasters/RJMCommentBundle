@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Entity;
+namespace RJM\CommentBundle\Tests\Entity;
 
-use FOS\CommentBundle\Entity\VoteManager;
+use RJM\CommentBundle\Entity\VoteManager;
 
 /**
  * Tests the functionality provided by Entity\VoteManager.
@@ -39,7 +39,7 @@ class VoteManagerTest extends \PHPUnit_Framework_TestCase
         $this->repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->class = 'FOS\CommentBundle\Tests\Entity\Vote';
+        $this->class = 'RJM\CommentBundle\Tests\Entity\Vote';
 
         $this->em->expects($this->any())
             ->method('getRepository')
@@ -63,10 +63,10 @@ class VoteManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testAddVote()
     {
-        $vote = $this->getMock('FOS\CommentBundle\Model\VoteInterface');
+        $vote = $this->getMock('RJM\CommentBundle\Model\VoteInterface');
         $vote->expects($this->any())
             ->method('getComment')
-            ->will($this->returnValue($this->getMock('FOS\CommentBundle\Model\VotableCommentInterface')));
+            ->will($this->returnValue($this->getMock('RJM\CommentBundle\Model\VotableCommentInterface')));
 
         $this->em->expects($this->exactly(2))
             ->method('persist');
@@ -80,7 +80,7 @@ class VoteManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testFindVoteBy()
     {
-        $vote = $this->getMock('FOS\CommentBundle\Model\VoteInterface');
+        $vote = $this->getMock('RJM\CommentBundle\Model\VoteInterface');
         $criteria = array('id' => 123);
 
         $this->repository->expects($this->once())
@@ -97,7 +97,7 @@ class VoteManagerTest extends \PHPUnit_Framework_TestCase
     public function testFindVoteById()
     {
         $id = 123;
-        $vote = $this->getMock('FOS\CommentBundle\Model\VoteInterface');
+        $vote = $this->getMock('RJM\CommentBundle\Model\VoteInterface');
 
         $this->repository->expects($this->once())
             ->method('findOneBy')
@@ -112,11 +112,11 @@ class VoteManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateVote()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
 
         $manager = new VoteManager($this->dispatcher, $this->em, $this->class);
         $result = $manager->createVote($comment);
 
-        $this->assertInstanceOf('FOS\CommentBundle\Model\VoteInterface', $result);
+        $this->assertInstanceOf('RJM\CommentBundle\Model\VoteInterface', $result);
     }
 }

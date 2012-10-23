@@ -10,7 +10,7 @@ No, there is no additional steps required for a basic configuration. Please chec
  * An initial request to your page
  * A request to the jQuery library
  * A request to a javascript file. Something like /web/js/35a8e64.js
- * A request to the FOSCommentBundle's API. Something like /web/app.php/api/threads/test
+ * A request to the RJMCommentBundle's API. Something like /web/app.php/api/threads/test
 
 ###  How to solve the error "Fatal error: Maximum function nesting level of '100' reached"?
 

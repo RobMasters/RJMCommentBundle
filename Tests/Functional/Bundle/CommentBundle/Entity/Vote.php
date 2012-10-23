@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity;
+namespace RJM\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Vote as BaseVote;
-use FOS\CommentBundle\Model\SignedVoteInterface;
+use RJM\CommentBundle\Entity\Vote as BaseVote;
+use RJM\CommentBundle\Model\SignedVoteInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\EventListener;
+namespace RJM\CommentBundle\EventListener;
 
-use FOS\CommentBundle\Events;
-use FOS\CommentBundle\Event\CommentEvent;
-use FOS\CommentBundle\Markup\ParserInterface;
-use FOS\CommentBundle\Model\RawCommentInterface;
+use RJM\CommentBundle\Events;
+use RJM\CommentBundle\Event\CommentEvent;
+use RJM\CommentBundle\Markup\ParserInterface;
+use RJM\CommentBundle\Model\RawCommentInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -33,7 +33,7 @@ class CommentMarkupListener implements EventSubscriberInterface
     /**
      * Constructor.
      *
-     * @param \FOS\CommentBundle\Markup\ParserInterface $parser
+     * @param \RJM\CommentBundle\Markup\ParserInterface $parser
      */
     public function __construct(ParserInterface $parser)
     {
@@ -44,7 +44,7 @@ class CommentMarkupListener implements EventSubscriberInterface
      * Parses raw comment data and assigns it to the rawBody
      * property.
      *
-     * @param \FOS\CommentBundle\Event\CommentEvent $event
+     * @param \RJM\CommentBundle\Event\CommentEvent $event
      */
     public function markup(CommentEvent $event)
     {

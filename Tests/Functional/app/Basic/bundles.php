@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -18,12 +18,12 @@ return array(
 
     new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
 
-    new FOS\RestBundle\FOSRestBundle(),
-    new FOS\CommentBundle\FOSCommentBundle(),
+    new RJM\RestBundle\RJMRestBundle(),
+    new RJM\CommentBundle\RJMCommentBundle(),
 
     new JMS\SerializerBundle\JMSSerializerBundle($this),
 
     new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-    new FOS\CommentBundle\Tests\Functional\Bundle\CommentBundle\CommentBundle(),
+    new RJM\CommentBundle\Tests\Functional\Bundle\CommentBundle\CommentBundle(),
 );

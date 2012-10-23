@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Entity;
+namespace RJM\CommentBundle\Tests\Entity;
 
-use FOS\CommentBundle\Entity\ThreadManager;
+use RJM\CommentBundle\Entity\ThreadManager;
 
 /**
  * Tests the functionality provided by Entity\ThreadManager.
@@ -39,7 +39,7 @@ class ThreadManagerTest extends \PHPUnit_Framework_TestCase
         $this->repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->class = 'FOS\CommentBundle\Tests\Entity\Thread';
+        $this->class = 'RJM\CommentBundle\Tests\Entity\Thread';
 
         $this->em->expects($this->any())
             ->method('getRepository')
@@ -56,7 +56,7 @@ class ThreadManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testAddThread()
     {
-        $thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
 
         $this->em->expects($this->once())
                 ->method('persist')
@@ -78,7 +78,7 @@ class ThreadManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testFindThreadBy()
     {
-        $thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
         $criteria = array('id' => 'hello');
 
         $this->repository->expects($this->once())
@@ -94,7 +94,7 @@ class ThreadManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testFindAllThreads()
     {
-        $thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
         $threads = array($thread);
 
         $this->repository->expects($this->once())
@@ -110,7 +110,7 @@ class ThreadManagerTest extends \PHPUnit_Framework_TestCase
     public function testFindThreadById()
     {
         $threadId = 'hello';
-        $thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
 
         $this->repository->expects($this->once())
             ->method('findOneBy')
@@ -128,6 +128,6 @@ class ThreadManagerTest extends \PHPUnit_Framework_TestCase
         $manager = new ThreadManager($this->dispatcher, $this->em, $this->class);
         $result = $manager->createThread();
 
-        $this->assertInstanceOf('FOS\CommentBundle\Model\ThreadInterface', $result);
+        $this->assertInstanceOf('RJM\CommentBundle\Model\ThreadInterface', $result);
     }
 }

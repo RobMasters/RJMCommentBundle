@@ -1,7 +1,7 @@
 Step 9a: Using ExerciseHTMLPurifierBundle
 ======================================
 
-FOSCommentBundle allows you to use [ExerciseHTMLPurifierBundle](https://github.com/Exercise/HTMLPurifierBundle)
+RJMCommentBundle allows you to use [ExerciseHTMLPurifierBundle](https://github.com/Exercise/HTMLPurifierBundle)
 to sanitise HTML entered into comments.
 
 ** Note: **
@@ -9,10 +9,10 @@ to sanitise HTML entered into comments.
 > Letting users post HTML directly without appropriate safety measures can lead
 > to XSS attacks. Be careful with your HTMLPurifier configuration!
 
-FOSCommentBundle does not automatically define the parsing bridge service for
+RJMCommentBundle does not automatically define the parsing bridge service for
 HTMLPurifier. You will need to do this in your application configuration.
 
-Additionally, you are required to tell FOSCommentBundle about this markup class
+Additionally, you are required to tell RJMCommentBundle about this markup class
 so that it knows to use it. Both requirements are listed in the code block below
 
 ``` yaml
@@ -21,7 +21,7 @@ so that it knows to use it. Both requirements are listed in the code block below
 services:
     # ...
     markup.exercise_html_purifier:
-        class: FOS\CommentBundle\Markup\HtmlPurifier
+        class: RJM\CommentBundle\Markup\HtmlPurifier
         arguments: [ @exercise_html_purifier.default ]
     # ...
 

@@ -5,9 +5,9 @@ fos_comment:
     db_driver: orm
     class:
         model:
-            comment: FOS\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity\Comment
-            thread: FOS\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity\Thread
-            vote: FOS\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity\Vote
+            comment: RJM\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity\Comment
+            thread: RJM\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity\Thread
+            vote: RJM\CommentBundle\Tests\Functional\Bundle\CommentBundle\Entity\Vote
 
 mink:
     base_url: http://127.0.0.1:8080/
@@ -16,4 +16,4 @@ mink:
     show_cmd: open %s
 
 parameters:
-    behat.mink.driver.symfony.class: FOS\CommentBundle\Tests\Functional\SymfonyDriver
+    behat.mink.driver.symfony.class: RJM\CommentBundle\Tests\Functional\SymfonyDriver

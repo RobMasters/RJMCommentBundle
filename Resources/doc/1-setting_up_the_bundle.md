@@ -1,8 +1,8 @@
 Step 1: Setting up the bundle
 =============================
-### A) Download and install FOSCommentBundle
+### A) Download and install RJMCommentBundle
 
-To install FOSCommentBundle run the following command
+To install RJMCommentBundle run the following command
 
 ``` bash
 $ php composer.phar require friendsofsymfony/comment-bundle
@@ -20,8 +20,8 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new FOS\RestBundle\FOSRestBundle(),
-        new FOS\CommentBundle\FOSCommentBundle(),
+        new RJM\RestBundle\RJMRestBundle(),
+        new RJM\CommentBundle\RJMCommentBundle(),
         new JMS\SerializerBundle\JMSSerializerBundle($this),
     );
 }

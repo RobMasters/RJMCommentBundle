@@ -40,7 +40,7 @@ security:
             form_login: false
             http_basic:
                 provider: memory
-                realm: "FOSCommentBundle Test Suite"
+                realm: "RJMCommentBundle Test Suite"
             logout:       true
             anonymous:    true
 

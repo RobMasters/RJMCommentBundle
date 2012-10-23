@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Acl;
+namespace RJM\CommentBundle\Acl;
 
-use FOS\CommentBundle\Model\VotableCommentInterface;
-use FOS\CommentBundle\Model\VoteInterface;
-use FOS\CommentBundle\Model\VoteManagerInterface;
+use RJM\CommentBundle\Model\VotableCommentInterface;
+use RJM\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VoteManagerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**

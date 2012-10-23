@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\SpamDetection;
+namespace RJM\CommentBundle\Tests\SpamDetection;
 
-use FOS\CommentBundle\SpamDetection\AkismetSpamDetection;
+use RJM\CommentBundle\SpamDetection\AkismetSpamDetection;
 
 /**
  * Tests the functionality provided by Acl\AclCommentManager.
@@ -35,7 +35,7 @@ class AkismetSpamDetectionTest extends \PHPUnit_Framework_TestCase
 
     public function testAkismetSpamDetection()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
 
         $this->akismet->expects($this->once())
             ->method('isSpam')

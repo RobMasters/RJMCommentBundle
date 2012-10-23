@@ -5,7 +5,7 @@
         <ini name="xdebug.max_nesting_level" value="200" />
     </php>
     <testsuites>
-        <testsuite name="FOSCommentBundle">
+        <testsuite name="RJMCommentBundle">
             <directory suffix="Test.php">./Tests</directory>
         </testsuite>
     </testsuites>

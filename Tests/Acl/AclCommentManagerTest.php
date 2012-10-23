@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Acl;
+namespace RJM\CommentBundle\Tests\Acl;
 
-use FOS\CommentBundle\Acl\AclCommentManager;
-use FOS\CommentBundle\Model\CommentInterface;
-use FOS\CommentBundle\Model\CommentManagerInterface;
-use FOS\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Acl\AclCommentManager;
+use RJM\CommentBundle\Model\CommentInterface;
+use RJM\CommentBundle\Model\CommentManagerInterface;
+use RJM\CommentBundle\Model\ThreadInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
@@ -35,11 +35,11 @@ class AclCommentManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->realManager = $this->getMock('FOS\CommentBundle\Model\CommentManagerInterface');
-        $this->commentSecurity = $this->getMock('FOS\CommentBundle\Acl\CommentAclInterface');
-        $this->threadSecurity = $this->getMock('FOS\CommentBundle\Acl\ThreadAclInterface');
-        $this->thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
-        $this->comment = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $this->realManager = $this->getMock('RJM\CommentBundle\Model\CommentManagerInterface');
+        $this->commentSecurity = $this->getMock('RJM\CommentBundle\Acl\CommentAclInterface');
+        $this->threadSecurity = $this->getMock('RJM\CommentBundle\Acl\ThreadAclInterface');
+        $this->thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
+        $this->comment = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
         $this->sorting_strategy = 'date_asc';
         $this->depth = 0;
         $this->parent = null;
@@ -214,7 +214,7 @@ class AclCommentManagerTest extends \PHPUnit_Framework_TestCase
 
     protected function saveCommentSetup()
     {
-        $this->parent = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $this->parent = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
         $this->commentReturnsThread();
     }
 
@@ -298,7 +298,7 @@ class AclCommentManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateComment()
     {
-        $this->parent = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $this->parent = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
 
         $this->realManager->expects($this->once())
             ->method('createComment')

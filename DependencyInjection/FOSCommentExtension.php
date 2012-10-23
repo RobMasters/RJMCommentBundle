@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\DependencyInjection;
+namespace RJM\CommentBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
@@ -23,7 +23,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */
-class FOSCommentExtension extends Extension
+class RJMCommentExtension extends Extension
 {
     /**
      * Loads and processes configuration to configure the Container.

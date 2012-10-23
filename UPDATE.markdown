@@ -22,13 +22,13 @@
 
  * You need to remove comment.js previously used by this bundle. async.html.twig now includes its
    own javascript file automatically.
- * There is now a dependency on FOSRestBundle. Check the installation documentation for details.
+ * There is now a dependency on RJMRestBundle. Check the installation documentation for details.
  * Routing has changed, you must replace your existing fos_comment route import to
 
    ``` yaml
    fos_comment_api:
        type: rest
-       resource: "@FOSCommentBundle/Resources/config/routing.yml"
+       resource: "@RJMCommentBundle/Resources/config/routing.yml"
        prefix: /comment/api
    ```
 
@@ -36,7 +36,7 @@
    your page which will trigger an asynchronous load of a comment thread using the REST api.
 
    ``` jinja
-   {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
+   {% include 'RJMCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
    ```
 
 2012-01-21

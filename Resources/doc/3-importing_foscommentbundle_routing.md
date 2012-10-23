@@ -1,11 +1,11 @@
-Step 3: Import FOSCommentBundle routing
+Step 3: Import RJMCommentBundle routing
 =======================================
 Import the bundle routing:
 
 ``` yaml
 fos_comment_api:
     type: rest
-    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    resource: "@RJMCommentBundle/Resources/config/routing.yml"
     prefix: /api
     defaults: { _format: html }
 ```
@@ -16,7 +16,7 @@ fos_comment_api:
 **Note:**
 
 > The defaults configuration may not be necessary unless you have
-> changed FOSRestBundle's default format.
+> changed RJMRestBundle's default format.
 
 ### Continue to the next step! (final!)
 When you're done. Continue with the final step: enabling the comments on a page:

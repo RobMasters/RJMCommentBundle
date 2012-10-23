@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Functional;
+namespace RJM\CommentBundle\Tests\Functional;
 
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
@@ -74,7 +74,7 @@ class WebTestCase extends BaseWebTestCase
     {
         require_once __DIR__.'/app/AppKernel.php';
 
-        return 'FOS\\CommentBundle\\Tests\\Functional\\AppKernel';
+        return 'RJM\\CommentBundle\\Tests\\Functional\\AppKernel';
     }
 
     protected static function createKernel(array $options = array())

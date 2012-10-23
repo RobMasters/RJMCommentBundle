@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Model;
+namespace RJM\CommentBundle\Model;
 
 /**
  * CommentInterface.
  *
- * Any comment to be used by FOS\CommentBundle must implement this interface.
+ * Any comment to be used by RJM\CommentBundle must implement this interface.
  *
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */

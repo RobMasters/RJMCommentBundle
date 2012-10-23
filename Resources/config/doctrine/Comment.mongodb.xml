@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- This file is part of the FOSCommentBundle package.
+ This file is part of the RJMCommentBundle package.
 
  (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
 
@@ -14,7 +14,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <mapped-superclass name="FOS\CommentBundle\Document\Comment" collection="fos_comment_comment">
+    <mapped-superclass name="RJM\CommentBundle\Document\Comment" collection="fos_comment_comment">
 
         <field name="body" fieldName="body" type="string" />
 

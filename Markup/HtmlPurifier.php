@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Markup;
+namespace RJM\CommentBundle\Markup;
 
 /**
  * Uses HTMLPurifier to parse and sanitise html.

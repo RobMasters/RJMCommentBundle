@@ -10,7 +10,7 @@ you must create one:
 namespace MyProject\MyBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use FOS\CommentBundle\Document\Comment as BaseComment;
+use RJM\CommentBundle\Document\Comment as BaseComment;
 
 /**
  * @MongoDB\Document
@@ -42,7 +42,7 @@ Additionally, create the Thread class:
 namespace MyProject\MyBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use FOS\CommentBundle\Document\Thread as BaseThread;
+use RJM\CommentBundle\Document\Thread as BaseThread;
 
 /**
  * @MongoDB\Document
@@ -69,7 +69,7 @@ fos_comment:
             thread: MyProject\MyBundle\Document\Thread
 
 assetic:
-    bundles: [ "FOSCommentBundle" ]  
+    bundles: [ "RJMCommentBundle" ]
 ```
 
 Or if you prefer XML:
@@ -87,7 +87,7 @@ Or if you prefer XML:
 </fos_comment:config>
     
 <assetic:config>
-    <assetic:bundle name="FOSCommentBundle" />
+    <assetic:bundle name="RJMCommentBundle" />
 </assetic:config>
 ```
 

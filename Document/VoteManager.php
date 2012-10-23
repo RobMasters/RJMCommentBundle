@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Document;
+namespace RJM\CommentBundle\Document;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
-use FOS\CommentBundle\Model\VotableCommentInterface;
-use FOS\CommentBundle\Model\VoteInterface;
-use FOS\CommentBundle\Model\VoteManager as BaseVoteManager;
+use RJM\CommentBundle\Model\VotableCommentInterface;
+use RJM\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VoteManager as BaseVoteManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -59,7 +59,7 @@ class VoteManager extends BaseVoteManager
     /**
      * Persists a vote.
      *
-     * @param \FOS\CommentBundle\Model\VoteInterface $vote
+     * @param \RJM\CommentBundle\Model\VoteInterface $vote
      */
     protected function doSaveVote(VoteInterface $vote)
     {
@@ -82,7 +82,7 @@ class VoteManager extends BaseVoteManager
     /**
      * Finds all votes belonging to a comment.
      *
-     * @param  \FOS\CommentBundle\Model\VotableCommentInterface $comment
+     * @param  \RJM\CommentBundle\Model\VotableCommentInterface $comment
      * @return array|null
      */
     public function findVotesByComment(VotableCommentInterface $comment)

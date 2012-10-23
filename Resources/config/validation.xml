@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
 <!--
- This file is part of the FOSCommentBundle package.
+ This file is part of the RJMCommentBundle package.
 
  (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
 
@@ -14,7 +14,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
         http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
 
-    <class name="FOS\CommentBundle\Model\Comment">
+    <class name="RJM\CommentBundle\Model\Comment">
 
         <property name="body">
             <constraint name="NotBlank">
@@ -27,7 +27,7 @@
         </property>
     </class>
 
-    <class name="FOS\CommentBundle\Model\Vote">
+    <class name="RJM\CommentBundle\Model\Vote">
         <constraint name="Callback">
             <option name="methods">
                 <value>isVoteValid</value>
@@ -35,7 +35,7 @@
         </constraint>
     </class>
 
-    <class name="FOS\CommentBundle\Model\Thread">
+    <class name="RJM\CommentBundle\Model\Thread">
 
         <property name="id">
             <constraint name="NotBlank">

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,17 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\EventListener;
+namespace RJM\CommentBundle\EventListener;
 
-use FOS\CommentBundle\Events;
-use FOS\CommentBundle\Event\VoteEvent;
-use FOS\CommentBundle\Model\SignedVoteInterface;
+use RJM\CommentBundle\Events;
+use RJM\CommentBundle\Event\VoteEvent;
+use RJM\CommentBundle\Model\SignedVoteInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
 /**
- * Assigns a FOS\UserBundle user from the logged in user to a vote.
+ * Assigns a RJM\UserBundle user from the logged in user to a vote.
  *
  * @author Tim Nagel <tim@nagel.com.au>
  */

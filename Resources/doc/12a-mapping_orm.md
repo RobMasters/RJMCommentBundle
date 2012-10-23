@@ -13,7 +13,7 @@ For example:
 namespace MyProject\MyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Vote as BaseVote;
+use RJM\CommentBundle\Entity\Vote as BaseVote;
 
 /**
  * @ORM\Entity
@@ -47,8 +47,8 @@ And you should implement `VotableCommentInterface` in your Comment class and add
 namespace MyProject\MyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Comment as BaseComment;
-use FOS\CommentBundle\Model\VotableCommentInterface;
+use RJM\CommentBundle\Entity\Comment as BaseComment;
+use RJM\CommentBundle\Model\VotableCommentInterface;
 
 /**
  * @ORM\Entity

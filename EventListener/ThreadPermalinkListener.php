@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,10 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\EventListener;
+namespace RJM\CommentBundle\EventListener;
 
-use FOS\CommentBundle\Events;
-use FOS\CommentBundle\Event\ThreadEvent;
+use RJM\CommentBundle\Events;
+use RJM\CommentBundle\Event\ThreadEvent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -41,7 +41,7 @@ class ThreadPermalinkListener implements EventSubscriberInterface
     /**
      * Creates and persists a thread with the specified id.
      *
-     * @param \FOS\CommentBundle\Event\ThreadEvent $event
+     * @param \RJM\CommentBundle\Event\ThreadEvent $event
      */
     public function onThreadCreate(ThreadEvent $event)
     {

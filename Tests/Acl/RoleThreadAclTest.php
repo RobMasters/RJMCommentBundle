@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Acl;
+namespace RJM\CommentBundle\Tests\Acl;
 
-use FOS\CommentBundle\Acl\RoleThreadAcl;
+use RJM\CommentBundle\Acl\RoleThreadAcl;
 
 /**
  * Tests the functionality provided by Acl\AclVoteManager.
@@ -30,6 +30,6 @@ class RoleThreadAclTest extends AbstractRoleAcl
             $this->editRole,
             $this->deleteRole,
             '');
-        $this->passObject = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $this->passObject = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
     }
 }

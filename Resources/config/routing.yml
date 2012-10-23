@@ -1,5 +1,5 @@
 #
-# This file is part of the FOSCommentBundle package.
+# This file is part of the RJMCommentBundle package.
 #
 # (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
 #
@@ -8,5 +8,5 @@
 #
 fos_comment_thread_api:
     type: rest
-    resource: FOS\CommentBundle\Controller\ThreadController
+    resource: RJM\CommentBundle\Controller\ThreadController
     name_prefix: fos_comment_

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Event;
+namespace RJM\CommentBundle\Event;
 
-use FOS\CommentBundle\Model\CommentInterface;
+use RJM\CommentBundle\Model\CommentInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
@@ -26,7 +26,7 @@ class CommentEvent extends Event
     /**
      * Constructs an event.
      *
-     * @param \FOS\CommentBundle\Model\CommentInterface $comment
+     * @param \RJM\CommentBundle\Model\CommentInterface $comment
      */
     public function __construct(CommentInterface $comment)
     {
@@ -36,7 +36,7 @@ class CommentEvent extends Event
     /**
      * Returns the comment for this event.
      *
-     * @return \FOS\CommentBundle\Model\CommentInterface
+     * @return \RJM\CommentBundle\Model\CommentInterface
      */
     public function getComment()
     {

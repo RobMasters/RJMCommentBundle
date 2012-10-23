@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,10 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Model;
+namespace RJM\CommentBundle\Model;
 
-use FOS\CommentBundle\Events;
-use FOS\CommentBundle\Event\VoteEvent;
+use RJM\CommentBundle\Events;
+use RJM\CommentBundle\Event\VoteEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**

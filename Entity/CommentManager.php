@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,13 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Entity;
+namespace RJM\CommentBundle\Entity;
 
 use Doctrine\ORM\EntityManager;
-use FOS\CommentBundle\Model\CommentManager as BaseCommentManager;
-use FOS\CommentBundle\Model\ThreadInterface;
-use FOS\CommentBundle\Model\CommentInterface;
-use FOS\CommentBundle\Sorting\SortingFactory;
+use RJM\CommentBundle\Model\CommentManager as BaseCommentManager;
+use RJM\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\CommentInterface;
+use RJM\CommentBundle\Sorting\SortingFactory;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -44,7 +44,7 @@ class CommentManager extends BaseCommentManager
      * Constructor.
      *
      * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
-     * @param \FOS\CommentBundle\Sorting\SortingFactory                   $factory
+     * @param \RJM\CommentBundle\Sorting\SortingFactory                   $factory
      * @param \Doctrine\ORM\EntityManager                                 $em
      * @param string                                                      $class
      */

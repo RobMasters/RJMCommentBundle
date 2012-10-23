@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- This file is part of the FOSCommentBundle package.
+ This file is part of the RJMCommentBundle package.
 
  (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
 
@@ -14,7 +14,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <document name="FOS\CommentBundle\Document\Vote" collection="fos_comment_vote" customId="true" change-tracking-policy="DEFERRED_EXPLICIT">
+    <document name="RJM\CommentBundle\Document\Vote" collection="fos_comment_vote" customId="true" change-tracking-policy="DEFERRED_EXPLICIT">
 
         <field name="id" id="true" />
 

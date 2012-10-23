@@ -1,7 +1,7 @@
 Step 11: Running the test suite
 ======================================
 
-FOSCommentBundle comes with both unit tests (written with PHPUnit) and functional
+RJMCommentBundle comes with both unit tests (written with PHPUnit) and functional
 testing (written with Behat/Mink).
 
 These tests have some requirements that will need to be set up before being run.
@@ -34,7 +34,7 @@ Functional tests have more dependencies.
    * ./Tests/Functional/app/console doctrine:database:create
    * ./Tests/Functional/app/console doctrine:schema:create
 
-FOSCommentBundle uses Travis-CI and provides set up in the `.travis.yml` file in
+RJMCommentBundle uses Travis-CI and provides set up in the `.travis.yml` file in
 the root directory. You can base your configuration off this. There is an nginx.conf
 file in `Tests/Functional/app/Behat/nginx.conf.dist` which can also be used as
 a basis for configuring nginx to run functional tests.

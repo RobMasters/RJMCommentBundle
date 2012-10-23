@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Document;
+namespace RJM\CommentBundle\Document;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
-use FOS\CommentBundle\Model\ThreadInterface;
-use FOS\CommentBundle\Model\ThreadManager as BaseThreadManager;
+use RJM\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\ThreadManager as BaseThreadManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**

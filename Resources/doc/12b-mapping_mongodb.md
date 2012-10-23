@@ -10,7 +10,7 @@ you must create one:
 namespace MyProject\MyBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use FOS\CommentBundle\Document\Vote as BaseVote;
+use RJM\CommentBundle\Document\Vote as BaseVote;
 
 /**
  * @MongoDB\Document
@@ -42,8 +42,8 @@ And you should implement `VotableCommentInterface` in your Comment class and add
 namespace MyProject\MyBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use FOS\CommentBundle\Document\Comment as BaseComment;
-use FOS\CommentBundle\Model\VotableCommentInterface;
+use RJM\CommentBundle\Document\Comment as BaseComment;
+use RJM\CommentBundle\Model\VotableCommentInterface;
 
 /**
  * @MongoDB\Document

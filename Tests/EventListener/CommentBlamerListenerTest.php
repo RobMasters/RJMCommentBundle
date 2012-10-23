@@ -1,15 +1,15 @@
 <?php
 
-namespace FOS\CommentBundle\Tests\EventListener;
+namespace RJM\CommentBundle\Tests\EventListener;
 
-use FOS\CommentBundle\EventListener\CommentBlamerListener;
-use FOS\CommentBundle\Event\CommentEvent;
+use RJM\CommentBundle\EventListener\CommentBlamerListener;
+use RJM\CommentBundle\Event\CommentEvent;
 
 class CommentBlamerListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testNonSignedCommentIsNotBlamed()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
         $comment->expects($this->never())->method('setAuthor');
         $event = new CommentEvent($comment);
         $securityContext = $this->getSecurityContext();
@@ -75,7 +75,7 @@ class CommentBlamerListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testLoggerIsCalledForNonSignedComment()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
         $event = new CommentEvent($comment);
 
         $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
@@ -99,7 +99,7 @@ class CommentBlamerListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function getSignedComment()
     {
-        return $this->getMock('FOS\CommentBundle\Model\SignedCommentInterface');
+        return $this->getMock('RJM\CommentBundle\Model\SignedCommentInterface');
     }
 
     protected function getSecurityContext()

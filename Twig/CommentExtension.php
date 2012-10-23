@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,15 +9,15 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Twig;
+namespace RJM\CommentBundle\Twig;
 
-use FOS\CommentBundle\Acl\CommentAclInterface;
-use FOS\CommentBundle\Model\CommentInterface;
-use FOS\CommentBundle\Model\ThreadInterface;
-use FOS\CommentBundle\Model\VotableCommentInterface;
-use FOS\CommentBundle\Model\RawCommentInterface;
-use FOS\CommentBundle\Acl\ThreadAclInterface;
-use FOS\CommentBundle\Acl\VoteAclInterface;
+use RJM\CommentBundle\Acl\CommentAclInterface;
+use RJM\CommentBundle\Model\CommentInterface;
+use RJM\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\VotableCommentInterface;
+use RJM\CommentBundle\Model\RawCommentInterface;
+use RJM\CommentBundle\Acl\ThreadAclInterface;
+use RJM\CommentBundle\Acl\VoteAclInterface;
 
 /**
  * Extends Twig to provide some helper functions for the CommentBundle.
@@ -169,7 +169,7 @@ class CommentExtension extends \Twig_Extension
      * Checks if the comment is Votable and that the user has
      * permission to vote.
      *
-     * @param  \FOS\CommentBundle\Model\CommentInterface $comment
+     * @param  \RJM\CommentBundle\Model\CommentInterface $comment
      * @return bool
      */
     public function canVote(CommentInterface $comment)
@@ -186,7 +186,7 @@ class CommentExtension extends \Twig_Extension
             return false;
         }
 
-        return $this->voteAcl->canCreate();
+        return $this->voteAcl->canCreate($comment);
     }
 
     /**

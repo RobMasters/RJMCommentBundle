@@ -1,11 +1,11 @@
-Step 6: Integration with FOSUserBundle
+Step 6: Integration with RJMUserBundle
 ======================================
 By default, comments are made anonymously.
-[FOSUserBundle](http://github.com/FriendsOfSymfony/FOSUserBundle)
+[RJMUserBundle](http://github.com/FriendsOfSymfony/RJMUserBundle)
 authentication can be used to sign the comments.
 
-### A) Setup FOSUserBundle
-First you have to setup [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle). Check the [instructions](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/index.md).
+### A) Setup RJMUserBundle
+First you have to setup [RJMUserBundle](https://github.com/FriendsOfSymfony/RJMUserBundle). Check the [instructions](https://github.com/FriendsOfSymfony/RJMUserBundle/blob/master/Resources/doc/index.md).
 
 ### B) Extend the Comment class
 In order to add an author to a comment, the Comment class should implement the
@@ -20,8 +20,8 @@ For example in the ORM:
 namespace MyProject\MyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Comment as BaseComment;
-use FOS\CommentBundle\Model\SignedCommentInterface;
+use RJM\CommentBundle\Entity\Comment as BaseComment;
+use RJM\CommentBundle\Model\SignedCommentInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**

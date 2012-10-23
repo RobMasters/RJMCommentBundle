@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Acl;
+namespace RJM\CommentBundle\Acl;
 
-use FOS\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\ThreadInterface;
 
 /**
  * Used for checking if the ACL system will allow specific actions

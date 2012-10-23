@@ -1,7 +1,7 @@
-FOSCommentBundle
+RJMCommentBundle
 =============
 
-The FOSCommentBundle adds support for a comment system in Symfony2. Features include:
+The RJMCommentBundle adds support for a comment system in Symfony2. Features include:
 
 - Manages trees of comments
 - Can include comment threads in any page
@@ -10,7 +10,7 @@ The FOSCommentBundle adds support for a comment system in Symfony2. Features inc
 - REST api
 - Extensible through events fired during the comment lifecycle
 - Optional use of Symfony2 Acl to protect comments
-- Optional integration with FOS\UserBundle
+- Optional integration with RJM\UserBundle
 - Optional integration with `Akismet`_
 - Optional markup parser support (eg HtmlPurifier or php-sundown)
 
@@ -21,7 +21,7 @@ The FOSCommentBundle adds support for a comment system in Symfony2. Features inc
 >
 > For users of Symfony2.1, you must use 2.0.0 or higher of this bundle.
 
-[![Build Status](https://secure.travis-ci.org/FriendsOfSymfony/FOSCommentBundle.png?branch=master)](http://travis-ci.org/FriendsOfSymfony/FOSCommentBundle)
+[![Build Status](https://secure.travis-ci.org/FriendsOfSymfony/RJMCommentBundle.png?branch=master)](http://travis-ci.org/FriendsOfSymfony/RJMCommentBundle)
 
 Documentation
 -------------
@@ -29,12 +29,12 @@ Documentation
 The bulk of the documentation is stored in the `Resources/doc/index.md`
 file in this bundle:
 
-[Read the Documentation](https://github.com/FriendsOfSymfony/FOSCommentBundle/blob/master/Resources/doc/index.md)
+[Read the Documentation](https://github.com/FriendsOfSymfony/RJMCommentBundle/blob/master/Resources/doc/index.md)
 
 Installation
 ------------
 
-All the installation instructions are located in [documentation](https://github.com/FriendsOfSymfony/FOSCommentBundle/blob/master/Resources/doc/index.md).
+All the installation instructions are located in [documentation](https://github.com/FriendsOfSymfony/RJMCommentBundle/blob/master/Resources/doc/index.md).
 
 License
 -------

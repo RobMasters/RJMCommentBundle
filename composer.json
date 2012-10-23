@@ -20,7 +20,7 @@
         },
         {
             "name": "FriendsOfSymfony Community",
-            "homepage": "https://github.com/friendsofsymfony/FOSCommentBundle/contributors"
+            "homepage": "https://github.com/friendsofsymfony/RJMCommentBundle/contributors"
         }
     ],
     "minimum-stability": "dev",
@@ -45,7 +45,7 @@
         "behat/sahi-client": "*"
     },
     "autoload": {
-        "psr-0": { "FOS\\CommentBundle": "" }
+        "psr-0": { "RJM\\CommentBundle": "" }
     },
-    "target-dir": "FOS/CommentBundle"
+    "target-dir": "RJM/CommentBundle"
 }

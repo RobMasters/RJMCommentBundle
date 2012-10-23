@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
- This file is part of the FOSCommentBundle package.
+ This file is part of the RJMCommentBundle package.
 
  (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
 
@@ -14,34 +14,34 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="fos_comment.manager.thread.acl.class">FOS\CommentBundle\Acl\AclThreadManager</parameter>
-        <parameter key="fos_comment.manager.comment.acl.class">FOS\CommentBundle\Acl\AclCommentManager</parameter>
-        <parameter key="fos_comment.manager.vote.acl.class">FOS\CommentBundle\Acl\AclVoteManager</parameter>
+        <parameter key="fos_comment.manager.thread.acl.class">RJM\CommentBundle\Acl\AclThreadManager</parameter>
+        <parameter key="fos_comment.manager.comment.acl.class">RJM\CommentBundle\Acl\AclCommentManager</parameter>
+        <parameter key="fos_comment.manager.vote.acl.class">RJM\CommentBundle\Acl\AclVoteManager</parameter>
     </parameters>
 
     <services>
-        <service id="fos_comment.acl.thread.security" class="FOS\CommentBundle\Acl\SecurityThreadAcl" public="false">
+        <service id="fos_comment.acl.thread.security" class="RJM\CommentBundle\Acl\SecurityThreadAcl" public="false">
             <argument type="service" id="security.context" />
             <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
             <argument type="service" id="security.acl.provider" />
             <argument>%fos_comment.model.thread.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.comment.security" class="FOS\CommentBundle\Acl\SecurityCommentAcl" public="false">
+        <service id="fos_comment.acl.comment.security" class="RJM\CommentBundle\Acl\SecurityCommentAcl" public="false">
             <argument type="service" id="security.context" />
             <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
             <argument type="service" id="security.acl.provider" />
             <argument>%fos_comment.model.comment.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.vote.security" class="FOS\CommentBundle\Acl\SecurityVoteAcl" public="false">
+        <service id="fos_comment.acl.vote.security" class="RJM\CommentBundle\Acl\SecurityVoteAcl" public="false">
             <argument type="service" id="security.context" />
             <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
             <argument type="service" id="security.acl.provider" />
             <argument>%fos_comment.model.vote.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.thread.roles" class="FOS\CommentBundle\Acl\RoleThreadAcl" public="false">
+        <service id="fos_comment.acl.thread.roles" class="RJM\CommentBundle\Acl\RoleThreadAcl" public="false">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
             <argument /> <!-- View role -->
@@ -50,7 +50,7 @@
             <argument>%fos_comment.model.thread.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.comment.roles" class="FOS\CommentBundle\Acl\RoleCommentAcl" public="false">
+        <service id="fos_comment.acl.comment.roles" class="RJM\CommentBundle\Acl\RoleCommentAcl" public="false">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
             <argument /> <!-- View role -->
@@ -59,7 +59,7 @@
             <argument>%fos_comment.model.comment.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.vote.roles" class="FOS\CommentBundle\Acl\RoleVoteAcl" public="false">
+        <service id="fos_comment.acl.vote.roles" class="RJM\CommentBundle\Acl\RoleVoteAcl" public="false">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
             <argument /> <!-- View role -->

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle;
+namespace RJM\CommentBundle;
 
 final class Events
 {
@@ -19,7 +19,7 @@ final class Events
      *
      * This event allows you to modify the data in the Comment prior
      * to persisting occuring. The listener receives a
-     * FOS\CommentBundle\Event\CommentPersistEvent instance.
+     * RJM\CommentBundle\Event\CommentPersistEvent instance.
      *
      * Persisting of the comment can be aborted by calling
      * $event->abortPersist()
@@ -35,7 +35,7 @@ final class Events
      * This event allows you to notify users or perform other actions
      * that might require the Comment to be persisted before performing
      * those actions. The listener receives a
-     * FOS\CommentBundle\Event\CommentEvent instance.
+     * RJM\CommentBundle\Event\CommentEvent instance.
      *
      * @var string
      */
@@ -45,7 +45,7 @@ final class Events
      * The CREATE event occurs when the manager is asked to create
      * a new instance of a Comment.
      *
-     * The listener receives a FOS\CommentBundle\Event\CommentEvent
+     * The listener receives a RJM\CommentBundle\Event\CommentEvent
      * instance.
      *
      * @var string
@@ -58,7 +58,7 @@ final class Events
      *
      * This event allows you to modify the data in the Thread prior
      * to persisting occuring. The listener receives a
-     * FOS\CommentBundle\Event\ThreadEvent instance.
+     * RJM\CommentBundle\Event\ThreadEvent instance.
      *
      * @var string
      */
@@ -71,7 +71,7 @@ final class Events
      * This event allows you to notify users or perform other actions
      * that might require the Thread to be persisted before performing
      * those actions. The listener receives a
-     * FOS\CommentBundle\Event\ThreadEvent instance.
+     * RJM\CommentBundle\Event\ThreadEvent instance.
      *
      * @var string
      */
@@ -81,7 +81,7 @@ final class Events
      * The CREATE event occurs when the manager is asked to create
      * a new instance of a Thread.
      *
-     * The listener receives a FOS\CommentBundle\Event\ThreadEvent
+     * The listener receives a RJM\CommentBundle\Event\ThreadEvent
      * instance.
      *
      * @var string
@@ -94,7 +94,7 @@ final class Events
      *
      * This event allows you to modify the data in the Vote prior
      * to persisting occuring. The listener receives a
-     * FOS\CommentBundle\Event\VoteEvent instance.
+     * RJM\CommentBundle\Event\VoteEvent instance.
      *
      * @var string
      */
@@ -107,7 +107,7 @@ final class Events
      * This event allows you to notify users or perform other actions
      * that might require the Vote to be persisted before performing
      * those actions. The listener receives a
-     * FOS\CommentBundle\Event\VoteEvent instance.
+     * RJM\CommentBundle\Event\VoteEvent instance.
      *
      * @var string
      */
@@ -117,7 +117,7 @@ final class Events
      * The CREATE event occurs when the manager is asked to create
      * a new instance of a Vote.
      *
-     * The listener receives a FOS\CommentBundle\Event\VoteEvent
+     * The listener receives a RJM\CommentBundle\Event\VoteEvent
      * instance.
      *
      * @var string

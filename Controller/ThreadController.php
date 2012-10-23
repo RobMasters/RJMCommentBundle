@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,13 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Controller;
+namespace RJM\CommentBundle\Controller;
 
-use FOS\CommentBundle\Model\CommentInterface;
-use FOS\CommentBundle\Model\ThreadInterface;
-use FOS\Rest\Util\Codes;
-use FOS\RestBundle\View\RouteRedirectView;
-use FOS\RestBundle\View\View;
+use RJM\CommentBundle\Model\CommentInterface;
+use RJM\CommentBundle\Model\ThreadInterface;
+use RJM\Rest\Util\Codes;
+use RJM\RestBundle\View\RouteRedirectView;
+use RJM\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
 use Symfony\Component\Form\FormInterface;
@@ -44,7 +44,7 @@ class ThreadController extends Controller
 
         $view = View::create()
             ->setData(array('form' => $form->createView()))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'new'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'new'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -145,7 +145,7 @@ class ThreadController extends Controller
 
         $view = View::create()
             ->setData(array('form' => $form, 'id' => $id, 'isCommentable' => $thread->isCommentable()))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'commentable'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'commentable'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -212,7 +212,7 @@ class ThreadController extends Controller
                 'parent' => $parent,
                 'id' => $id,
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_new'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_new'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -236,7 +236,7 @@ class ThreadController extends Controller
 
         $view = View::create()
             ->setData(array('comment' => $comment, 'thread' => $thread))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -266,7 +266,7 @@ class ThreadController extends Controller
 
         $view = View::create()
             ->setData(array('form' => $form, 'id' => $id, 'commentId' => $commentId))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_remove'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_remove'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -329,7 +329,7 @@ class ThreadController extends Controller
                 'form' => $form->createView(),
                 'comment' => $comment,
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_edit'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_edit'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -419,12 +419,12 @@ class ThreadController extends Controller
                 'thread' => $thread,
                 'view' => $viewMode,
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comments'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comments'));
 
         // Register a special handler for RSS. Only available on this route.
         if ('rss' === $request->getRequestFormat()) {
             $templatingHandler = function($handler, $view, $request) {
-                $view->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'thread_xml_feed'));
+                $view->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'thread_xml_feed'));
 
                 return new Response($handler->renderTemplate($view, 'rss'), Codes::HTTP_OK, $view->getHeaders());
             };
@@ -489,7 +489,7 @@ class ThreadController extends Controller
             ->setData(array(
                 'commentScore' => $comment->getScore(),
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_votes'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_votes'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -523,7 +523,7 @@ class ThreadController extends Controller
                 'commentId' => $commentId,
                 'form' => $form->createView()
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'vote_new'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'vote_new'));
 
         return $this->getViewHandler()->handle($view);
     }
@@ -594,7 +594,7 @@ class ThreadController extends Controller
                 'id' => $id,
                 'parent' => $parent,
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_new'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_new'));
 
         return $view;
     }
@@ -625,7 +625,7 @@ class ThreadController extends Controller
             ->setData(array(
                 'form' => $form,
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'new'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'new'));
 
         return $view;
     }
@@ -675,7 +675,7 @@ class ThreadController extends Controller
                 'commentId' => $commentId,
                 'form' => $form,
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'vote_new'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'vote_new'));
 
         return $view;
     }
@@ -709,7 +709,7 @@ class ThreadController extends Controller
                 'form' => $form,
                 'comment' => $form->getData(),
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_edit'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_edit'));
 
         return $view;
     }
@@ -742,7 +742,7 @@ class ThreadController extends Controller
                 'id' => $form->getData()->getId(),
                 'isCommentable' => $form->getData()->isCommentable(),
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'commentable'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'commentable'));
 
         return $view;
     }
@@ -777,7 +777,7 @@ class ThreadController extends Controller
                 'id' => $id,
                 'value' => $form->getData()->getState(),
             ))
-            ->setTemplate(new TemplateReference('FOSCommentBundle', 'Thread', 'comment_remove'));
+            ->setTemplate(new TemplateReference('RJMCommentBundle', 'Thread', 'comment_remove'));
 
         return $view;
     }
@@ -807,7 +807,7 @@ class ThreadController extends Controller
     }
 
     /**
-     * @return \FOS\RestBundle\View\ViewHandler
+     * @return \RJM\RestBundle\View\ViewHandler
      */
     private function getViewHandler()
     {

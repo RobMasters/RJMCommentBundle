@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Event;
+namespace RJM\CommentBundle\Event;
 
-use FOS\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\ThreadInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
@@ -26,7 +26,7 @@ class ThreadEvent extends Event
     /**
      * Constructs an event.
      *
-     * @param \FOS\CommentBundle\Model\ThreadInterface $thread
+     * @param \RJM\CommentBundle\Model\ThreadInterface $thread
      */
     public function __construct(ThreadInterface $thread)
     {
@@ -36,7 +36,7 @@ class ThreadEvent extends Event
     /**
      * Returns the thread for this event.
      *
-     * @return \FOS\CommentBundle\Model\ThreadInterface
+     * @return \RJM\CommentBundle\Model\ThreadInterface
      */
     public function getThread()
     {

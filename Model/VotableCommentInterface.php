@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Model;
+namespace RJM\CommentBundle\Model;
 
 /**
  * A comment that may be voted on.
@@ -18,6 +18,13 @@ namespace FOS\CommentBundle\Model;
  */
 interface VotableCommentInterface extends CommentInterface
 {
+    /**
+     * Get a collection of votes for this comment
+     *
+     * @return \RJM\CommentBundle\Model\SignedVoteInterface[]
+     */
+    public function getVotes();
+
     /**
      * Sets the score of the comment.
      *

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- This file is part of the FOSCommentBundle package.
+ This file is part of the RJMCommentBundle package.
 
  (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
 
@@ -14,7 +14,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="FOS\CommentBundle\Entity\Thread">
+    <mapped-superclass name="RJM\CommentBundle\Entity\Thread">
 
         <field name="permalink" column="permalink" type="string" />
 

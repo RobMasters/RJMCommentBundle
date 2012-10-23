@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Acl;
+namespace RJM\CommentBundle\Acl;
 
-use FOS\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VotableCommentInterface;
 
 /**
  * Used for checking if the ACL system will allow specific actions
@@ -24,9 +25,10 @@ interface VoteAclInterface
     /**
      * Checks if the user should be allowed to create a vote.
      *
+     * @param \RJM\CommentBundle\Model\VotableCommentInterface $comment
      * @return boolean
      */
-    public function canCreate();
+    public function canCreate(VotableCommentInterface $comment);
 
     /**
      * Checks if the user should be allowed to view a vote.

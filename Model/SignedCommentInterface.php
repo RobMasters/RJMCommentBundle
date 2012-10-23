@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Model;
+namespace RJM\CommentBundle\Model;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * A signed comment is bound to a FOS\UserBundle User model.
+ * A signed comment is bound to a RJM\UserBundle User model.
  *
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */

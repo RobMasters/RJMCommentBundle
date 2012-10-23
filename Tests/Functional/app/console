@@ -7,7 +7,7 @@ require_once __DIR__.'/AppKernel.php';
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 
-use FOS\CommentBundle\Tests\Functional\AppKernel;
+use RJM\CommentBundle\Tests\Functional\AppKernel;
 
 $kernel = new AppKernel('Behat', 'config.yml', 'test', true);
 $application = new Application($kernel);

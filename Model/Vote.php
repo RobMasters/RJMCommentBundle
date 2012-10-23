@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,14 +9,14 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Model;
+namespace RJM\CommentBundle\Model;
 
 use DateTime;
 
 use Symfony\Component\Validator\ExecutionContext;
 
 /**
- * Storage agnostic vote object - Requires FOS\UserBundle
+ * Storage agnostic vote object - Requires RJM\UserBundle
  *
  * @author Tim Nagel <tim@nagel.com.au>
  */

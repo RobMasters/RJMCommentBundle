@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Acl;
+namespace RJM\CommentBundle\Tests\Acl;
 
-use FOS\CommentBundle\Acl\AclVoteManager;
-use FOS\CommentBundle\Model\VoteInterface;
-use FOS\CommentBundle\Model\VoteManagerInterface;
+use RJM\CommentBundle\Acl\AclVoteManager;
+use RJM\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VoteManagerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
@@ -31,11 +31,11 @@ class AclVoteManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->realManager = $this->getMock('FOS\CommentBundle\Model\VoteManagerInterface');
-        $this->voteSecurity = $this->getMock('FOS\CommentBundle\Acl\VoteAclInterface');
-        $this->commentSecurity = $this->getMock('FOS\CommentBundle\Acl\CommentAclInterface');
-        $this->comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
-        $this->vote = $this->getMock('FOS\CommentBundle\Model\VoteInterface');
+        $this->realManager = $this->getMock('RJM\CommentBundle\Model\VoteManagerInterface');
+        $this->voteSecurity = $this->getMock('RJM\CommentBundle\Acl\VoteAclInterface');
+        $this->commentSecurity = $this->getMock('RJM\CommentBundle\Acl\CommentAclInterface');
+        $this->comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
+        $this->vote = $this->getMock('RJM\CommentBundle\Model\VoteInterface');
         $this->vote->expects($this->any())
             ->method('getComment')
             ->will($this->returnValue($this->comment));
@@ -132,7 +132,7 @@ class AclVoteManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testFindVotesByComment()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
         $expectedResult = array($this->vote);
 
         $this->realManager->expects($this->once())
@@ -151,7 +151,7 @@ class AclVoteManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testFindVotesByCommentAllowed()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
         $expectedResult = array($this->vote);
 
         $this->realManager->expects($this->once())
@@ -175,7 +175,7 @@ class AclVoteManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddVoteNoCreate()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
 
         $this->realManager->expects($this->never())
             ->method('saveVote');
@@ -193,7 +193,7 @@ class AclVoteManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddVoteNoViewComment()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
 
         $this->realManager->expects($this->never())
             ->method('saveVote');
@@ -213,7 +213,7 @@ class AclVoteManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testAddVote()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\VotableCommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\VotableCommentInterface');
 
         $this->realManager->expects($this->once())
             ->method('saveVote')

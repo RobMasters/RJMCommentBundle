@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Entity;
+namespace RJM\CommentBundle\Tests\Entity;
 
 /**
  * Tests the functionality provided by Acl\AclCommentManager.
@@ -32,7 +32,7 @@ class CommentTest extends \PHPUnit_Framework_TestCase
         $ancestors = array(1, 5, 12);
         $parentId = 14;
 
-        $parent = $this->getMock('FOS\CommentBundle\Entity\Comment');
+        $parent = $this->getMock('RJM\CommentBundle\Entity\Comment');
         $parent->expects($this->once())
             ->method('getAncestors')
             ->will($this->returnValue($ancestors));
@@ -51,7 +51,7 @@ class CommentTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetParentNotPersisted()
     {
-        $parent = $this->getMock('FOS\CommentBundle\Entity\Comment');
+        $parent = $this->getMock('RJM\CommentBundle\Entity\Comment');
         $parent->expects($this->any())
             ->method('getId')
             ->will($this->returnValue(null));

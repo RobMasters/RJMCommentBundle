@@ -1,15 +1,15 @@
 <?php
 
-namespace FOS\CommentBundle\Tests\EventListener;
+namespace RJM\CommentBundle\Tests\EventListener;
 
-use FOS\CommentBundle\EventListener\VoteBlamerListener;
-use FOS\CommentBundle\Event\VoteEvent;
+use RJM\CommentBundle\EventListener\VoteBlamerListener;
+use RJM\CommentBundle\Event\VoteEvent;
 
 class VoteBlamerListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testNonSignedVoteIsNotBlamed()
     {
-        $vote = $this->getMock('FOS\CommentBundle\Model\VoteInterface');
+        $vote = $this->getMock('RJM\CommentBundle\Model\VoteInterface');
         $vote->expects($this->never())->method('setVoter');
         $event = new VoteEvent($vote);
         $securityContext = $this->getSecurityContext();
@@ -59,7 +59,7 @@ class VoteBlamerListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testLoggerIsCalledForNonSignedVote()
     {
-        $vote = $this->getMock('FOS\CommentBundle\Model\VoteInterface');
+        $vote = $this->getMock('RJM\CommentBundle\Model\VoteInterface');
         $event = new VoteEvent($vote);
 
         $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
@@ -83,7 +83,7 @@ class VoteBlamerListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function getSignedVote()
     {
-        return $this->getMock('FOS\CommentBundle\Model\SignedVoteInterface');
+        return $this->getMock('RJM\CommentBundle\Model\SignedVoteInterface');
     }
 
     protected function getSecurityContext()

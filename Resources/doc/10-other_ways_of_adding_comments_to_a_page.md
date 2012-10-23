@@ -1,7 +1,7 @@
 Step 10: Other ways of including comments in a page
 ======================================
 
-The default implementation of FOSCommentBundle uses asynchronous javascript
+The default implementation of RJMCommentBundle uses asynchronous javascript
 and jQuery (optionally with easyXDM for cross domain requests) to load a comment
 thread into a page.
 
@@ -41,7 +41,7 @@ template:
 {# ... #}
 <div id="fos_comment_thread" data-thread="{{ thread.id }}">
 
-{% include 'FOSCommentBundle:Thread:comments.html.twig' with {
+{% include 'RJMCommentBundle:Thread:comments.html.twig' with {
     'comments': comments,
     'thread': thread
 } %}
@@ -52,7 +52,7 @@ template:
 
 {% block javascript %}
 {# jQuery must be available in the page by this time #}
-{% javascripts '@FOSCommentBundle/Resources/assets/js/comments.js' %}
+{% javascripts '@RJMCommentBundle/Resources/assets/js/comments.js' %}
 <script type="text/javascript" src="{{ asset_url }}">
 // URI identifier for the thread comments
 var fos_comment_thread_id = '{{ path('fos_comment_get_thread_comments', {'id': thread.id}) }}';

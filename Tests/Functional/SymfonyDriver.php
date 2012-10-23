@@ -1,6 +1,6 @@
 <?php
 
-namespace FOS\CommentBundle\Tests\Functional;
+namespace RJM\CommentBundle\Tests\Functional;
 
 use Behat\Mink\Driver\GoutteDriver;
 use Symfony\Component\BrowserKit\Client;

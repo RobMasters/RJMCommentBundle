@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,10 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Acl;
+namespace RJM\CommentBundle\Acl;
 
-use FOS\CommentBundle\Model\VoteInterface;
-use FOS\CommentBundle\Model\SignedVoteInterface;
+use RJM\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VotableCommentInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use RJM\CommentBundle\Model\SignedVoteInterface;
 use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
@@ -89,11 +91,23 @@ class SecurityVoteAcl implements VoteAclInterface
     /**
      * Checks if the Security token is allowed to create a new Vote.
      *
+     * @param \RJM\CommentBundle\Model\VotableCommentInterface $comment
      * @return boolean
      */
-    public function canCreate()
+    public function canCreate(VotableCommentInterface $comment)
     {
-        return $this->securityContext->isGranted('CREATE', $this->oid);
+        if (!$this->securityContext->isGranted('CREATE', $this->oid)) {
+            return false;
+        }
+
+        $user = $this->securityContext->getToken()->getUser();
+
+        // TODO - this check shouldn't be required as ACL should deny any anonymous users
+        if (!$user instanceof UserInterface) {
+            return false;
+        }
+
+        return (!$this->hasAlreadyVoted($user, $comment));
     }
 
     /**
@@ -187,7 +201,6 @@ class SecurityVoteAcl implements VoteAclInterface
         $acl->insertClassAce(new RoleSecurityIdentity('ROLE_SUPER_ADMIN'), $builder->get());
 
         $builder->reset();
-        $builder->add('create');
         $builder->add('view');
         $acl->insertClassAce(new RoleSecurityIdentity('IS_AUTHENTICATED_ANONYMOUSLY'), $builder->get());
 
@@ -209,5 +222,23 @@ class SecurityVoteAcl implements VoteAclInterface
     {
         $oid = new ObjectIdentity('class', $this->voteClass);
         $this->aclProvider->deleteAcl($oid);
+    }
+
+    /**
+     * @param \Symfony\Component\Security\Core\User\UserInterface $user
+     * @param \RJM\CommentBundle\Model\VotableCommentInterface $comment
+     * @return bool
+     */
+    private function hasAlreadyVoted(UserInterface $user, VotableCommentInterface $comment)
+    {
+        $votes = $comment->getVotes();
+
+        foreach ($votes as $vote) {
+            if ($vote->getVoter() === $user) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

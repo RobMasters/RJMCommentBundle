@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,13 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Model;
+namespace RJM\CommentBundle\Model;
 
-use FOS\CommentBundle\Events;
-use FOS\CommentBundle\Event\CommentEvent;
-use FOS\CommentBundle\Event\CommentPersistEvent;
-use FOS\CommentBundle\Sorting\SortingFactory;
-use FOS\CommentBundle\Sorting\SortingInterface;
+use RJM\CommentBundle\Events;
+use RJM\CommentBundle\Event\CommentEvent;
+use RJM\CommentBundle\Event\CommentPersistEvent;
+use RJM\CommentBundle\Sorting\SortingFactory;
+use RJM\CommentBundle\Sorting\SortingInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use InvalidArgumentException;
 
@@ -41,7 +41,7 @@ abstract class CommentManager implements CommentManagerInterface
      * Constructor
      *
      * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
-     * @param \FOS\CommentBundle\Sorting\SortingFactory                   $factory
+     * @param \RJM\CommentBundle\Sorting\SortingFactory                   $factory
      */
     public function __construct(EventDispatcherInterface $dispatcher, SortingFactory $factory)
     {

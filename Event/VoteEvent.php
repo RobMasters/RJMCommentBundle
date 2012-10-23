@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Event;
+namespace RJM\CommentBundle\Event;
 
-use FOS\CommentBundle\Model\VoteInterface;
+use RJM\CommentBundle\Model\VoteInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
@@ -26,7 +26,7 @@ class VoteEvent extends Event
     /**
      * Constructs an event.
      *
-     * @param \FOS\CommentBundle\Model\VoteInterface $vote
+     * @param \RJM\CommentBundle\Model\VoteInterface $vote
      */
     public function __construct(VoteInterface $vote)
     {
@@ -36,7 +36,7 @@ class VoteEvent extends Event
     /**
      * Returns the vote for the event.
      *
-     * @return \FOS\CommentBundle\Model\VoteInterface
+     * @return \RJM\CommentBundle\Model\VoteInterface
      */
     public function getVote()
     {

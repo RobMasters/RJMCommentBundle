@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Entity;
+namespace RJM\CommentBundle\Tests\Entity;
 
-use FOS\CommentBundle\Entity\Vote as BaseVote;
+use RJM\CommentBundle\Entity\Vote as BaseVote;
 
 class Vote extends BaseVote
 {

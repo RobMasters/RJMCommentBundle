@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\EventListener;
+namespace RJM\CommentBundle\EventListener;
 
-use FOS\CommentBundle\Events;
-use FOS\CommentBundle\Event\CommentEvent;
-use FOS\CommentBundle\Model\CommentManagerInterface;
+use RJM\CommentBundle\Events;
+use RJM\CommentBundle\Event\CommentEvent;
+use RJM\CommentBundle\Model\CommentManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

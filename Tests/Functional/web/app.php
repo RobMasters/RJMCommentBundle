@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -12,7 +12,7 @@
 require_once __DIR__ . '/../app/AppKernel.php';
 
 use Symfony\Component\HttpFoundation\Request;
-use FOS\CommentBundle\Tests\Functional\AppKernel;
+use RJM\CommentBundle\Tests\Functional\AppKernel;
 
 $kernel = new AppKernel('Behat', 'config.yml', 'test', true);
 $request = Request::createFromGlobals();

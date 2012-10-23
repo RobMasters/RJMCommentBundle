@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Acl;
+namespace RJM\CommentBundle\Acl;
 
-use FOS\CommentBundle\Model\CommentInterface;
-use FOS\CommentBundle\Model\CommentManagerInterface;
-use FOS\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\CommentInterface;
+use RJM\CommentBundle\Model\CommentManagerInterface;
+use RJM\CommentBundle\Model\ThreadInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**

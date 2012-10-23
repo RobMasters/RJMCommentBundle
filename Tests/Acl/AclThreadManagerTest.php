@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Acl;
+namespace RJM\CommentBundle\Tests\Acl;
 
-use FOS\CommentBundle\Acl\AclThreadManager;
-use FOS\CommentBundle\Model\ThreadInterface;
-use FOS\CommentBundle\Model\ThreadManagerInterface;
+use RJM\CommentBundle\Acl\AclThreadManager;
+use RJM\CommentBundle\Model\ThreadInterface;
+use RJM\CommentBundle\Model\ThreadManagerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
@@ -29,9 +29,9 @@ class AclThreadManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->realManager = $this->getMock('FOS\CommentBundle\Model\ThreadManagerInterface');
-        $this->threadSecurity = $this->getMock('FOS\CommentBundle\Acl\ThreadAclInterface');
-        $this->thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $this->realManager = $this->getMock('RJM\CommentBundle\Model\ThreadManagerInterface');
+        $this->threadSecurity = $this->getMock('RJM\CommentBundle\Acl\ThreadAclInterface');
+        $this->thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
     }
 
     /**

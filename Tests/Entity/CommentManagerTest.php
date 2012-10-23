@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the RJMCommentBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace FOS\CommentBundle\Tests\Entity;
+namespace RJM\CommentBundle\Tests\Entity;
 
-use FOS\CommentBundle\Entity\CommentManager;
+use RJM\CommentBundle\Entity\CommentManager;
 
 /**
  * Tests the functionality provided by Entity\CommentManager.
@@ -40,8 +40,8 @@ class CommentManagerTest extends \PHPUnit_Framework_TestCase
         $this->repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->class = 'FOS\CommentBundle\Tests\Entity\Comment';
-        $this->sortingFactory = $this->getMockBuilder('FOS\CommentBundle\Sorting\SortingFactory')
+        $this->class = 'RJM\CommentBundle\Tests\Entity\Comment';
+        $this->sortingFactory = $this->getMockBuilder('RJM\CommentBundle\Sorting\SortingFactory')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -75,7 +75,7 @@ class CommentManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testSaveCommentNoThread()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
         $comment->expects($this->once())
             ->method('getThread')
             ->will($this->returnValue(null));
@@ -86,9 +86,9 @@ class CommentManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testSaveComment()
     {
-        $comment = $this->getMock('FOS\CommentBundle\Model\CommentInterface');
+        $comment = $this->getMock('RJM\CommentBundle\Model\CommentInterface');
 
-        $thread = $this->getMock('FOS\CommentBundle\Model\ThreadInterface');
+        $thread = $this->getMock('RJM\CommentBundle\Model\ThreadInterface');
         $comment->expects($this->any())
             ->method('getThread')
             ->will($this->returnValue($thread));
@@ -114,8 +114,8 @@ class CommentManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateComment()
     {
-        $thread = $this->getMock('FOS\CommentBundle\Entity\Thread');
-        $parent = $this->getMock('FOS\CommentBundle\Entity\Comment');
+        $thread = $this->getMock('RJM\CommentBundle\Entity\Thread');
+        $parent = $this->getMock('RJM\CommentBundle\Entity\Comment');
 
         $parent->expects($this->any())
             ->method('getId')
@@ -124,7 +124,7 @@ class CommentManagerTest extends \PHPUnit_Framework_TestCase
         $manager = new CommentManager($this->dispatcher, $this->sortingFactory, $this->em, $this->class);
         $result = $manager->createComment($thread, $parent);
 
-        $this->assertInstanceOf('FOS\CommentBundle\Model\CommentInterface', $result);
+        $this->assertInstanceOf('RJM\CommentBundle\Model\CommentInterface', $result);
         $this->assertEquals($thread, $result->getThread());
         $this->assertEquals($parent, $result->getParent());
     }

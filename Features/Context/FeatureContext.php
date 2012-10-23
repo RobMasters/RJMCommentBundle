@@ -1,6 +1,6 @@
 <?php
 
-namespace FOS\CommentBundle\Features\Context;
+namespace RJM\CommentBundle\Features\Context;
 
 use Behat\BehatBundle\Context\MinkContext;
 
@@ -25,7 +25,7 @@ class FeatureContext extends MinkContext
     }
 
     /**
-     * @return \FOS\CommentBundle\Model\ThreadManagerInterface
+     * @return \RJM\CommentBundle\Model\ThreadManagerInterface
      */
     private function getThreadManager()
     {
