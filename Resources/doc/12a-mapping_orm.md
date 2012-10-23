@@ -104,7 +104,7 @@ class Comment extends BaseComment implements VotableCommentInterface
 ``` yaml
 # app/config/config.yml
 
-fos_comment:
+rjm_comment:
     db_driver: orm
     class:
         model:
@@ -116,13 +116,13 @@ Or if you prefer XML:
 ``` xml
 # app/config/config.xml
 
-<fos_comment:config db-driver="orm">
-    <fos_comment:class>
-        <fos_comment:model
+<rjm_comment:config db-driver="orm">
+    <rjm_comment:class>
+        <rjm_comment:model
             vote="MyProject\MyBundle\Entity\Vote"
         />
-    </fos_comment:class>
-</fos_comment:config>
+    </rjm_comment:class>
+</rjm_comment:config>
 ```
 ### Back to the main step
 [Step 12: Enable voting](12-enable_voting.md).

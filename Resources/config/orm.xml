@@ -14,35 +14,35 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="fos_comment.model.thread.class">RJM\CommentBundle\Entity\Thread</parameter>
-        <parameter key="fos_comment.model.comment.class">RJM\CommentBundle\Entity\Comment</parameter>
-        <parameter key="fos_comment.model.vote.class">RJM\CommentBundle\Entity\Vote</parameter>
+        <parameter key="rjm_comment.model.thread.class">RJM\CommentBundle\Entity\Thread</parameter>
+        <parameter key="rjm_comment.model.comment.class">RJM\CommentBundle\Entity\Comment</parameter>
+        <parameter key="rjm_comment.model.vote.class">RJM\CommentBundle\Entity\Vote</parameter>
 
-        <parameter key="fos_comment.manager.thread.default.class">RJM\CommentBundle\Entity\ThreadManager</parameter>
-        <parameter key="fos_comment.manager.comment.default.class">RJM\CommentBundle\Entity\CommentManager</parameter>
-        <parameter key="fos_comment.manager.vote.default.class">RJM\CommentBundle\Entity\VoteManager</parameter>
+        <parameter key="rjm_comment.manager.thread.default.class">RJM\CommentBundle\Entity\ThreadManager</parameter>
+        <parameter key="rjm_comment.manager.comment.default.class">RJM\CommentBundle\Entity\CommentManager</parameter>
+        <parameter key="rjm_comment.manager.vote.default.class">RJM\CommentBundle\Entity\VoteManager</parameter>
     </parameters>
 
     <services>
-        <service id="fos_comment.entity_manager" factory-service="doctrine" factory-method="getEntityManager" class="Doctrine\ORM\EntityManager" public="false">
-            <argument>%fos_comment.model_manager_name%</argument>
+        <service id="rjm_comment.entity_manager" factory-service="doctrine" factory-method="getEntityManager" class="Doctrine\ORM\EntityManager" public="false">
+            <argument>%rjm_comment.model_manager_name%</argument>
         </service>
 
-        <service id="fos_comment.manager.thread.default" class="%fos_comment.manager.thread.default.class%">
+        <service id="rjm_comment.manager.thread.default" class="%rjm_comment.manager.thread.default.class%">
             <argument type="service" id="event_dispatcher" />
-            <argument type="service" id="fos_comment.entity_manager" />
-            <argument>%fos_comment.model.thread.class%</argument>
+            <argument type="service" id="rjm_comment.entity_manager" />
+            <argument>%rjm_comment.model.thread.class%</argument>
         </service>
-        <service id="fos_comment.manager.comment.default" class="%fos_comment.manager.comment.default.class%">
+        <service id="rjm_comment.manager.comment.default" class="%rjm_comment.manager.comment.default.class%">
             <argument type="service" id="event_dispatcher" />
-            <argument type="service" id="fos_comment.sorting_factory" />
-            <argument type="service" id="fos_comment.entity_manager" />
-            <argument>%fos_comment.model.comment.class%</argument>
+            <argument type="service" id="rjm_comment.sorting_factory" />
+            <argument type="service" id="rjm_comment.entity_manager" />
+            <argument>%rjm_comment.model.comment.class%</argument>
         </service>
-        <service id="fos_comment.manager.vote.default" class="%fos_comment.manager.vote.default.class%">
+        <service id="rjm_comment.manager.vote.default" class="%rjm_comment.manager.vote.default.class%">
             <argument type="service" id="event_dispatcher" />
-            <argument type="service" id="fos_comment.entity_manager" />
-            <argument>%fos_comment.model.vote.class%</argument>
+            <argument type="service" id="rjm_comment.entity_manager" />
+            <argument>%rjm_comment.model.vote.class%</argument>
         </service>
     </services>
 

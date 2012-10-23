@@ -4,14 +4,14 @@
  * If you don't use the async template to render the comments, you will need to add a new variable defining the base url of the api:
 
  ``` javascript
- var fos_comment_thread_api_base_url = 'http://example.org/api/threads';
- var fos_comment_thread_id = 'my_thread_id';
+ var rjm_comment_thread_api_base_url = 'http://example.org/api/threads';
+ var rjm_comment_thread_id = 'my_thread_id';
  ```
  * A new method `ThreadManagerInterface#findThreadsBy` was added.
  * A new method `ThreadManagerInterface#isNewThread()` was added.
  * `ThreadInterface#setIsCommentable` was renamed to `ThreadInterface#setCommentable`
  * A new method `CommentManagerInterface#isNewComment` was added.
- * The html class `fos_comment_comment_form` was renamed to `fos_comment_comment_new_form`. Custom javascript implementations should be adjusted for this change.
+ * The html class `rjm_comment_comment_form` was renamed to `rjm_comment_comment_new_form`. Custom javascript implementations should be adjusted for this change.
  * A new method `CommentInterface#getState` was added.
  * A new method `CommentInterface#setState` was added.
  * A new method `CommentInterface#getPreviousState` was added.
@@ -23,10 +23,10 @@
  * You need to remove comment.js previously used by this bundle. async.html.twig now includes its
    own javascript file automatically.
  * There is now a dependency on RJMRestBundle. Check the installation documentation for details.
- * Routing has changed, you must replace your existing fos_comment route import to
+ * Routing has changed, you must replace your existing rjm_comment route import to
 
    ``` yaml
-   fos_comment_api:
+   rjm_comment_api:
        type: rest
        resource: "@RJMCommentBundle/Resources/config/routing.yml"
        prefix: /comment/api

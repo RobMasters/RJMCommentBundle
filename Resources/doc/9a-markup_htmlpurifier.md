@@ -25,7 +25,7 @@ services:
         arguments: [ @exercise_html_purifier.default ]
     # ...
 
-fos_comment:
+rjm_comment:
     # ...
     services:
         markup: markup.exercise_html_purifier

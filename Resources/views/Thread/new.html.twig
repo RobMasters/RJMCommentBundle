@@ -9,9 +9,9 @@
 
 #}
 
-<form class="fos_comment_comment_form" action="{{ url('fos_comment_post_threads') }}" method="POST">
+<form class="rjm_comment_comment_form" action="{{ url('rjm_comment_post_threads') }}" method="POST">
 
-    {% block fos_comment_form_fields %}
+    {% block rjm_comment_form_fields %}
         {{ form_errors(form) }}
         {{ form_errors(form.id) }}
         {{ form_widget(form.id) }}
@@ -21,9 +21,9 @@
         {{ form_rest(form) }}
     {% endblock %}
 
-    <div class="fos_comment_submit">
-        {% block fos_comment_form_submit %}
-            <input type="submit" value="{% trans from 'RJMCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" />
+    <div class="rjm_comment_submit">
+        {% block rjm_comment_form_submit %}
+            <input type="submit" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
         {% endblock %}
     </div>
 

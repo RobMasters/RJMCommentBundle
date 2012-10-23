@@ -28,12 +28,12 @@ class SortingPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('fos_comment.sorting_factory')) {
+        if (!$container->hasDefinition('rjm_comment.sorting_factory')) {
             return;
         }
 
         $sorters = array();
-        foreach ($container->findTaggedServiceIds('fos_comment.sorter') as $id => $tags) {
+        foreach ($container->findTaggedServiceIds('rjm_comment.sorter') as $id => $tags) {
             foreach ($tags as $tag) {
                 if (empty($tag['alias'])) {
                     throw new InvalidArgumentException('The Sorter must have an alias');
@@ -43,6 +43,6 @@ class SortingPass implements CompilerPassInterface
             }
         }
 
-        $container->getDefinition('fos_comment.sorting_factory')->replaceArgument(0, $sorters);
+        $container->getDefinition('rjm_comment.sorting_factory')->replaceArgument(0, $sorters);
     }
 }

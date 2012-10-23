@@ -15,7 +15,7 @@ adjust the configuration accordingly
 ``` yaml
 # app/config/config.yml
 
-fos_comment:
+rjm_comment:
     service:
         markup: your_markup_service
 ```

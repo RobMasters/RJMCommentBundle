@@ -14,24 +14,24 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="fos_comment.sorting_factory.class">RJM\CommentBundle\Sorting\SortingFactory</parameter>
-        <parameter key="fos_comment.sorter.date.class">RJM\CommentBundle\Sorting\DateSorting</parameter>
+        <parameter key="rjm_comment.sorting_factory.class">RJM\CommentBundle\Sorting\SortingFactory</parameter>
+        <parameter key="rjm_comment.sorter.date.class">RJM\CommentBundle\Sorting\DateSorting</parameter>
     </parameters>
 
     <services>
-        <service id="fos_comment.sorter.date_asc" class="%fos_comment.sorter.date.class%" public="false">
-            <tag name="fos_comment.sorter" alias="date_asc" />
+        <service id="rjm_comment.sorter.date_asc" class="%rjm_comment.sorter.date.class%" public="false">
+            <tag name="rjm_comment.sorter" alias="date_asc" />
             <argument>ASC</argument>
         </service>
 
-        <service id="fos_comment.sorter.date_desc" class="%fos_comment.sorter.date.class%" public="false">
-            <tag name="fos_comment.sorter" alias="date_desc" />
+        <service id="rjm_comment.sorter.date_desc" class="%rjm_comment.sorter.date.class%" public="false">
+            <tag name="rjm_comment.sorter" alias="date_desc" />
             <argument>DESC</argument>
         </service>
 
-        <service id="fos_comment.sorting_factory" class="%fos_comment.sorting_factory.class%">
+        <service id="rjm_comment.sorting_factory" class="%rjm_comment.sorting_factory.class%">
             <argument type="collection" />
-            <argument>%fos_comment.sorting_factory.default_sorter%</argument>
+            <argument>%rjm_comment.sorting_factory.default_sorter%</argument>
         </service>
     </services>
 </container>

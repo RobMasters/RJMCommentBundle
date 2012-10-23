@@ -14,7 +14,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <mapped-superclass name="RJM\CommentBundle\Document\Comment" collection="fos_comment_comment">
+    <mapped-superclass name="RJM\CommentBundle\Document\Comment" collection="rjm_comment_comment">
 
         <field name="body" fieldName="body" type="string" />
 

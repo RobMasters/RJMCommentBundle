@@ -1,7 +1,7 @@
 imports:
     - { resource: ./../config/default.yml }
 
-fos_comment:
+rjm_comment:
     db_driver: orm
     class:
         model:

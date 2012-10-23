@@ -1,0 +1,18 @@
+rjm_comment_comment_new_headline_first:       Bodi prvi in komentiraj
+rjm_comment_comment_new_headline:             Dodaj nov komentar
+rjm_comment_comment_new_submit:               Objavi
+rjm_comment_comment_new_cancel:               Prekliči
+
+rjm_comment_comment_reply_reply_to:           Odgovor za %name%
+rjm_comment_comment_reply_cancel:             Prekliči
+
+rjm_comment_comment_show_by:                  Od
+rjm_comment_comment_show_voteup:              Glasuj za
+rjm_comment_comment_show_votedown:            Glasuj proti
+rjm_comment_comment_show_reply:               Odgovori
+
+rjm_comment_comment_tree_load_more:           Naloži več odgovorov
+
+Showing %num% comment|Showing %num% comments: Prikazan %num% komentar|Prikazana %num% komentarja|Prikazani %num% komentarji|Prikazanih %num% komentarjev
+
+rjm_comment_rss_feed:                         RSS Feed

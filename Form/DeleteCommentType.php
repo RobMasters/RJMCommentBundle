@@ -45,6 +45,6 @@ class DeleteCommentType extends AbstractType
 
     public function getName()
     {
-        return "fos_comment_delete_comment";
+        return "rjm_comment_delete_comment";
     }
 }

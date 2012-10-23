@@ -14,33 +14,33 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="fos_comment.listener.comment_vote_score" class="RJM\CommentBundle\EventListener\CommentVoteScoreListener">
+        <service id="rjm_comment.listener.comment_vote_score" class="RJM\CommentBundle\EventListener\CommentVoteScoreListener">
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="fos_comment.listener.thread_counters" class="RJM\CommentBundle\EventListener\ThreadCountersListener">
-            <argument type="service" id="fos_comment.manager.comment" />
+        <service id="rjm_comment.listener.thread_counters" class="RJM\CommentBundle\EventListener\ThreadCountersListener">
+            <argument type="service" id="rjm_comment.manager.comment" />
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="fos_comment.listener.thread_permalink" class="RJM\CommentBundle\EventListener\ThreadPermalinkListener">
+        <service id="rjm_comment.listener.thread_permalink" class="RJM\CommentBundle\EventListener\ThreadPermalinkListener">
             <argument type="service" id="service_container" />
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="fos_comment.listener.comment_blamer" class="RJM\CommentBundle\EventListener\CommentBlamerListener">
+        <service id="rjm_comment.listener.comment_blamer" class="RJM\CommentBundle\EventListener\CommentBlamerListener">
             <argument type="service" id="security.context" on-invalid="null" />
             <argument type="service" id="logger" on-invalid="null" />
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="fos_comment.listener.vote_blamer" class="RJM\CommentBundle\EventListener\VoteBlamerListener">
+        <service id="rjm_comment.listener.vote_blamer" class="RJM\CommentBundle\EventListener\VoteBlamerListener">
             <argument type="service" id="security.context" on-invalid="null" />
             <argument type="service" id="logger" on-invalid="null" />
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="fos_comment.listener.closed_threads" class="RJM\CommentBundle\EventListener\ClosedThreadListener">
+        <service id="rjm_comment.listener.closed_threads" class="RJM\CommentBundle\EventListener\ClosedThreadListener">
             <tag name="kernel.event_subscriber" />
         </service>
     </services>

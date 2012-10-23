@@ -1,0 +1,29 @@
+rjm_comment_comment_new_headline_first:       Napisz pierwszy komentarz
+rjm_comment_comment_new_headline:             Dodaj nowy komentarz
+rjm_comment_comment_new_submit:               Napisz
+rjm_comment_comment_new_cancel:               Anuluj
+
+rjm_comment_comment_reply_reply_to:           Odpowiadając na %name%
+rjm_comment_comment_reply_cancel:             Anuluj
+
+rjm_comment_comment_show_by:                  Przez
+rjm_comment_comment_show_voteup:              Głosuj w górę
+rjm_comment_comment_show_votedown:            Głosuj w dół
+rjm_comment_comment_show_reply:               Odpowiedz
+
+rjm_comment_comment_tree_load_more:           Załaduj więcej odpowiedzi
+
+Showing %num% comment|Showing %num% comments: Pokazuje %num% komentarz|Pokazuje %num% komentarze|Pokazuje %num% komentarzy
+
+rjm_comment_rss_feed:                         RSS Feed
+
+
+rjm_comment_comment_vote_score:               "Liczba głosów: "
+
+rjm_comment_thread_close:                     Zamknij wątek
+rjm_comment_thread_open:                      Otwórz watek
+rjm_comment_thread_comment_count:             %count% komentarz|%count% komentarze|%count% komentarzy
+rjm_comment_comment_edit:                     Edytuj
+rjm_comment_comment_delete:                   Usuń komentarz
+rjm_comment_comment_undelete:                 Przywróć komentarz
+rjm_comment_comment_deleted:                  "[usunięty]"

@@ -189,7 +189,7 @@ class SecurityVoteAcl implements VoteAclInterface
      *
      * Override this method in a subclass to change what permissions are defined.
      * Once this method has been overridden you need to run the
-     * `fos_vote:installAces --flush` command
+     * `rjm_vote:installAces --flush` command
      *
      * @param  AclInterface $acl
      * @param  MaskBuilder  $builder

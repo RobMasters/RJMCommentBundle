@@ -102,7 +102,7 @@ In YAML:
 ``` yaml
 # app/config/config.yml
 
-fos_comment:
+rjm_comment:
     db_driver: mongodb
     class:
         model:
@@ -114,13 +114,13 @@ Or if you prefer XML:
 ``` xml
 # app/config/config.xml
 
-<fos_comment:config db-driver="mongodb">
-    <fos_comment:class>
-        <fos_comment:model
+<rjm_comment:config db-driver="mongodb">
+    <rjm_comment:class>
+        <rjm_comment:model
             vote="MyProject\MyBundle\Document\Vote"
         />
-    </fos_comment:class>
-</fos_comment:config>
+    </rjm_comment:class>
+</rjm_comment:config>
 ```
 
 ### Back to the main step

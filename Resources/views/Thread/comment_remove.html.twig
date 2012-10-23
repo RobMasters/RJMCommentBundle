@@ -9,10 +9,10 @@
 
 #}
 
-<div class="fos_comment_delete_form_holder">
-    <form class="fos_comment_delete_form" action="{{ url('fos_comment_patch_thread_comment_state', {'id': id, 'commentId': commentId}) }}" data-fos-comment-thread-id="{{ id }}" method="POST">
+<div class="rjm_comment_delete_form_holder">
+    <form class="rjm_comment_delete_form" action="{{ url('rjm_comment_patch_thread_comment_state', {'id': id, 'commentId': commentId}) }}" data-rjm-comment-thread-id="{{ id }}" method="POST">
 
-        {% block fos_comment_form_fields %}
+        {% block rjm_comment_form_fields %}
             {{ form_errors(form) }}
 
             {{ form_rest(form) }}
@@ -20,9 +20,9 @@
 
         <input type="hidden" name="_method" value="patch" />
 
-        <div class="fos_comment_submit">
-            {% block fos_comment_form_submit %}
-                <input type="submit" value="{{ 'fos_comment_comment_delete' | trans({}, 'RJMCommentBundle') }}" />
+        <div class="rjm_comment_submit">
+            {% block rjm_comment_form_submit %}
+                <input type="submit" value="{{ 'rjm_comment_comment_delete' | trans({}, 'RJMCommentBundle') }}" />
             {% endblock %}
         </div>
 

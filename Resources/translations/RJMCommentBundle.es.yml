@@ -1,0 +1,27 @@
+rjm_comment_comment_new_headline_first:       Se el primero en comentar
+rjm_comment_comment_new_headline:             Dejar un comentario
+rjm_comment_comment_new_submit:               Enviar comentario
+rjm_comment_comment_new_cancel:               Cancelar
+
+rjm_comment_comment_reply_reply_to:           Responder a %name%
+rjm_comment_comment_reply_cancel:             Cancelar
+
+rjm_comment_comment_show_by:                  Por
+rjm_comment_comment_show_voteup:              Me gusta
+rjm_comment_comment_show_votedown:            No me gusta
+rjm_comment_comment_show_reply:               Responder
+
+rjm_comment_comment_vote_score:               "Puntuación:"
+
+rjm_comment_comment_tree_load_more:           Cargar más respuestas
+
+Showing %num% comment|Showing %num% comments: Se muestra %num% comentario|Se muestran %num% comentarios
+
+rjm_comment_thread_close:                     Cerrar hilo
+rjm_comment_thread_open:                      Abrir hilo
+rjm_comment_thread_comment_count:             %count% comentario|%count% comentarios
+rjm_comment_comment_delete:                   Borrar comentario
+rjm_comment_comment_undelete:                 Deshacer borrado del comentario
+rjm_comment_comment_deleted:                  "[Borrado]"
+
+rjm_comment_rss_feed:                         Feed RSS

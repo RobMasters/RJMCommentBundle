@@ -56,7 +56,7 @@ services:
         class: Vendor\CommentBundle\Markup\Sundown
     # ...
 
-fos_comment:
+rjm_comment:
     # ...
     services:
         markup: markup.sundown_markdown

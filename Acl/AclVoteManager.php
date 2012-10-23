@@ -104,7 +104,7 @@ class AclVoteManager implements VoteManagerInterface
      */
     public function saveVote(VoteInterface $vote)
     {
-        if (!$this->voteAcl->canCreate()) {
+        if (!$this->voteAcl->canCreate($vote->getComment())) {
             throw new AccessDeniedException();
         }
 

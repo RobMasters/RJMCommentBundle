@@ -29,7 +29,7 @@ class InstallAcesCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('fos:comment:installAces')
+            ->setName('rjm:comment:installAces')
             ->setDescription('Installs global ACEs')
             ->setDefinition(array(
                 new InputOption('flush', null, InputOption::VALUE_NONE, 'Flush existing Acls'),
@@ -39,7 +39,7 @@ This command should be run once during the installation process of the entire bu
 after enabling Acl for the first time.
 
 If you have been using CommentBundle previously without Acl and are just enabling it, you
-will also need to run fos:comment:fixAces.
+will also need to run rjm:comment:fixAces.
 EOT
             );
     }
@@ -55,9 +55,9 @@ EOT
             return;
         }
 
-        $threadAcl = $this->getContainer()->get('fos_comment.acl.thread');
-        $commentAcl = $this->getContainer()->get('fos_comment.acl.comment');
-        $voteAcl = $this->getContainer()->get('fos_comment.acl.vote');
+        $threadAcl = $this->getContainer()->get('rjm_comment.acl.thread');
+        $commentAcl = $this->getContainer()->get('rjm_comment.acl.comment');
+        $voteAcl = $this->getContainer()->get('rjm_comment.acl.vote');
 
         if ($input->getOption('flush')) {
             $output->writeln('Flushing Global ACEs');

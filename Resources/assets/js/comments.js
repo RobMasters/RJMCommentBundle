@@ -15,28 +15,28 @@
  *
  * Then a comment thread can be embedded on any page:
  *
- * <div id="fos_comment_thread">#comments</div>
+ * <div id="rjm_comment_thread">#comments</div>
  * <script type="text/javascript">
  *     // Set the thread_id if you want comments to be loaded via ajax (url to thread comments api)
- *     var fos_comment_thread_id = 'a_unique_identifier_for_the_thread';
- *     var fos_comment_thread_api_base_url = 'http://example.org/api/threads';
+ *     var rjm_comment_thread_id = 'a_unique_identifier_for_the_thread';
+ *     var rjm_comment_thread_api_base_url = 'http://example.org/api/threads';
  *
  *     // Optionally set the cors url if you want cross-domain AJAX (also needs easyXDM)
- *     var fos_comment_remote_cors_url = 'http://example.org/cors/index.html';
+ *     var rjm_comment_remote_cors_url = 'http://example.org/cors/index.html';
  *
  *     // Optionally set a custom callback function to update the comment count elements
- *     var window.fos_comment_thread_comment_count_callback = function(elem, threadObject){}
+ *     var window.rjm_comment_thread_comment_count_callback = function(elem, threadObject){}
  *
- *     // Optionally set a different element than div#fos_comment_thread as container
- *     var fos_comment_thread_container = $('#other_element');
+ *     // Optionally set a different element than div#rjm_comment_thread as container
+ *     var rjm_comment_thread_container = $('#other_element');
  *
  * (function() {
- *     var fos_comment_script = document.createElement('script');
- *     fos_comment_script.async = true;
- *     fos_comment_script.src = 'http://example.org/path/to/this/file.js';
- *     fos_comment_script.type = 'text/javascript';
+ *     var rjm_comment_script = document.createElement('script');
+ *     rjm_comment_script.async = true;
+ *     rjm_comment_script.src = 'http://example.org/path/to/this/file.js';
+ *     rjm_comment_script.type = 'text/javascript';
  *
- *     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(fos_comment_script);
+ *     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(rjm_comment_script);
  * })();
  * </script>
  */
@@ -106,7 +106,7 @@
          */
         initializeListeners: function() {
             RJM_COMMENT.thread_container.on('submit',
-                'form.fos_comment_comment_new_form',
+                'form.rjm_comment_comment_new_form',
                 function(e) {
                     var that = $(this);
 
@@ -130,7 +130,7 @@
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_comment_reply_show_form',
+                '.rjm_comment_comment_reply_show_form',
                 function(e) {
                     var form_data = $(this).data();
                     var that = this;
@@ -139,7 +139,7 @@
                         form_data.url,
                         {parentId: form_data.parentId},
                         function(data) {
-                            $(that).parent().addClass('fos_comment_replying');
+                            $(that).parent().addClass('rjm_comment_replying');
                             $(that).after(data);
                         }
                     );
@@ -147,16 +147,16 @@
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_comment_reply_cancel',
+                '.rjm_comment_comment_reply_cancel',
                 function(e) {
                     var form_holder = $(this).parent().parent().parent();
-                    form_holder.parent().removeClass('fos_comment_replying');
+                    form_holder.parent().removeClass('rjm_comment_replying');
                     form_holder.remove();
                 }
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_comment_edit_show_form',
+                '.rjm_comment_comment_edit_show_form',
                 function(e) {
                     var form_data = $(this).data();
                     var that = this;
@@ -178,7 +178,7 @@
             );
 
             RJM_COMMENT.thread_container.on('submit',
-                'form.fos_comment_comment_edit_form',
+                'form.rjm_comment_comment_edit_form',
                 function(e) {
                     var that = $(this);
 
@@ -203,14 +203,14 @@
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_comment_edit_cancel',
+                '.rjm_comment_comment_edit_cancel',
                 function(e) {
-                    RJM_COMMENT.cancelEditComment($(this).parents('.fos_comment_comment_body'));
+                    RJM_COMMENT.cancelEditComment($(this).parents('.rjm_comment_comment_body'));
                 }
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_comment_vote',
+                '.rjm_comment_comment_vote',
                 function(e) {
                     var form_data = $(this).data();
 
@@ -236,7 +236,7 @@
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_comment_remove',
+                '.rjm_comment_comment_remove',
                 function(e) {
                     var form_data = $(this).data();
 
@@ -265,7 +265,7 @@
             );
 
             RJM_COMMENT.thread_container.on('click',
-                '.fos_comment_thread_commentable_action',
+                '.rjm_comment_thread_commentable_action',
                 function(e) {
                     var form_data = $(this).data();
 
@@ -282,7 +282,7 @@
                                 RJM_COMMENT.serializeObject(form),
                                 function(data) {
                                     var form = $(data).children('form')[0];
-                                    var threadId = $(form).data().fosCommentThreadId;
+                                    var threadId = $(form).data().rjmCommentThreadId;
 
                                     // reload the intire thread
                                     RJM_COMMENT.getThreadComments(threadId);
@@ -302,7 +302,7 @@
 
                 // reply button holder
                 var reply_button_holder = form_parent.parent();
-                reply_button_holder.removeClass('fos_comment_replying');
+                reply_button_holder.removeClass('rjm_comment_replying');
 
                 reply_button_holder.after(commentHtml);
 
@@ -315,15 +315,15 @@
                 // "reset" the form
                 form = $(form[0]);
                 form.find('textarea').val('');
-                form.children('.fos_comment_form_errors').remove();
+                form.children('.rjm_comment_form_errors').remove();
             }
         },
 
         editComment: function(commentHtml) {
             var commentHtml = $(commentHtml);
-            var originalCommentBody = $('#' + commentHtml.attr('id')).children('.fos_comment_comment_body');
+            var originalCommentBody = $('#' + commentHtml.attr('id')).children('.rjm_comment_comment_body');
 
-            originalCommentBody.html(commentHtml.children('.fos_comment_comment_body').html());
+            originalCommentBody.html(commentHtml.children('.rjm_comment_comment_body').html());
         },
 
         cancelEditComment: function(commentBody) {
@@ -355,10 +355,10 @@
         loadCommentCounts: function()
         {
             var threadIds = [];
-            var commentCountElements = $('span.fos-comment-count');
+            var commentCountElements = $('span.rjm-comment-count');
 
             commentCountElements.each(function(i, elem){
-                var threadId = $(elem).data('fosCommentThreadId');
+                var threadId = $(elem).data('rjmCommentThreadId');
                 if(threadId) {
                     threadIds.push(threadId);
                 }
@@ -380,7 +380,7 @@
                     }
 
                     $.each(commentCountElements, function(){
-                        var threadId = $(this).data('fosCommentThreadId');
+                        var threadId = $(this).data('rjmCommentThreadId');
                         if(threadId) {
                             RJM_COMMENT.setCommentCount(this, threadData[threadId]);
                         }
@@ -402,10 +402,10 @@
     };
 
     // Check if a thread container was configured. If not, use default.
-    RJM_COMMENT.thread_container = window.fos_comment_thread_container || $('#fos_comment_thread');
+    RJM_COMMENT.thread_container = window.rjm_comment_thread_container || $('#rjm_comment_thread');
 
     // AJAX via easyXDM if this is configured
-    if(typeof window.fos_comment_remote_cors_url != "undefined") {
+    if(typeof window.rjm_comment_remote_cors_url != "undefined") {
         /**
          * easyXDM instance to use
          */
@@ -455,7 +455,7 @@
 
         /* Initialize xhr object to do cross-domain requests. */
         RJM_COMMENT.xhr = new RJM_COMMENT.easyXDM.Rpc({
-                remote: window.fos_comment_remote_cors_url
+                remote: window.rjm_comment_remote_cors_url
         }, {
             remote: {
                 request: {} // request is exposed by /cors/
@@ -464,24 +464,24 @@
     }
 
     // set the appropriate base url
-    RJM_COMMENT.base_url = window.fos_comment_thread_api_base_url;
+    RJM_COMMENT.base_url = window.rjm_comment_thread_api_base_url;
 
     // Load the comment if there is a thread id defined.
-    if(typeof window.fos_comment_thread_id != "undefined") {
+    if(typeof window.rjm_comment_thread_id != "undefined") {
         // get the thread comments and init listeners
-        RJM_COMMENT.getThreadComments(window.fos_comment_thread_id);
+        RJM_COMMENT.getThreadComments(window.rjm_comment_thread_id);
     }
 
-    if(typeof window.fos_comment_thread_comment_count_callback != "undefined") {
-        RJM_COMMENT.setCommentCount = window.fos_comment_thread_comment_count_callback;
+    if(typeof window.rjm_comment_thread_comment_count_callback != "undefined") {
+        RJM_COMMENT.setCommentCount = window.rjm_comment_thread_comment_count_callback;
     }
 
-    if($('span.fos-comment-count').length > 0) {
+    if($('span.rjm-comment-count').length > 0) {
         RJM_COMMENT.loadCommentCounts();
     }
 
     RJM_COMMENT.initializeListeners();
 
-    window.fos = window.fos || {};
-    window.fos.Comment = RJM_COMMENT;
+    window.rjm = window.rjm || {};
+    window.rjm.Comment = RJM_COMMENT;
 })(window, window.jQuery, window.easyXDM);

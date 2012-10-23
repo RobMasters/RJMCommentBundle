@@ -14,59 +14,59 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="fos_comment.form_type.comment.default" class="RJM\CommentBundle\Form\CommentType">
-            <argument>%fos_comment.model.comment.class%</argument>
-            <tag name="form.type" alias="fos_comment_comment" />
+        <service id="rjm_comment.form_type.comment.default" class="RJM\CommentBundle\Form\CommentType">
+            <argument>%rjm_comment.model.comment.class%</argument>
+            <tag name="form.type" alias="rjm_comment_comment" />
         </service>
 
-        <service id="fos_comment.form_factory.comment.default" class="RJM\CommentBundle\FormFactory\CommentFormFactory" public="false">
+        <service id="rjm_comment.form_factory.comment.default" class="RJM\CommentBundle\FormFactory\CommentFormFactory" public="false">
             <argument type="service" id="form.factory" />
-            <argument>%fos_comment.form.comment.type%</argument>
-            <argument>%fos_comment.form.comment.name%</argument>
+            <argument>%rjm_comment.form.comment.type%</argument>
+            <argument>%rjm_comment.form.comment.name%</argument>
         </service>
 
-        <service id="fos_comment.form_type.commentable_thread.default" class="RJM\CommentBundle\Form\CommentableThreadType">
-            <argument>%fos_comment.model.thread.class%</argument>
-            <tag name="form.type" alias="fos_comment_commentable_thread" />
+        <service id="rjm_comment.form_type.commentable_thread.default" class="RJM\CommentBundle\Form\CommentableThreadType">
+            <argument>%rjm_comment.model.thread.class%</argument>
+            <tag name="form.type" alias="rjm_comment_commentable_thread" />
         </service>
 
-        <service id="fos_comment.form_factory.commentable_thread.default" class="RJM\CommentBundle\FormFactory\CommentableThreadFormFactory" public="false">
+        <service id="rjm_comment.form_factory.commentable_thread.default" class="RJM\CommentBundle\FormFactory\CommentableThreadFormFactory" public="false">
             <argument type="service" id="form.factory" />
-            <argument>%fos_comment.form.commentable_thread.type%</argument>
-            <argument>%fos_comment.form.commentable_thread.name%</argument>
+            <argument>%rjm_comment.form.commentable_thread.type%</argument>
+            <argument>%rjm_comment.form.commentable_thread.name%</argument>
         </service>
 
-        <service id="fos_comment.form_type.delete_comment.default" class="RJM\CommentBundle\Form\DeleteCommentType">
-            <argument>%fos_comment.model.comment.class%</argument>
-            <tag name="form.type" alias="fos_comment_delete_comment" />
+        <service id="rjm_comment.form_type.delete_comment.default" class="RJM\CommentBundle\Form\DeleteCommentType">
+            <argument>%rjm_comment.model.comment.class%</argument>
+            <tag name="form.type" alias="rjm_comment_delete_comment" />
         </service>
 
-        <service id="fos_comment.form_factory.delete_comment.default" class="RJM\CommentBundle\FormFactory\DeleteCommentFormFactory" public="false">
+        <service id="rjm_comment.form_factory.delete_comment.default" class="RJM\CommentBundle\FormFactory\DeleteCommentFormFactory" public="false">
             <argument type="service" id="form.factory" />
-            <argument>%fos_comment.form.delete_comment.type%</argument>
-            <argument>%fos_comment.form.delete_comment.name%</argument>
+            <argument>%rjm_comment.form.delete_comment.type%</argument>
+            <argument>%rjm_comment.form.delete_comment.name%</argument>
         </service>
 
-        <service id="fos_comment.form_type.thread.default" class="RJM\CommentBundle\Form\ThreadType">
-            <argument>%fos_comment.model.thread.class%</argument>
-            <tag name="form.type" alias="fos_comment_thread" />
+        <service id="rjm_comment.form_type.thread.default" class="RJM\CommentBundle\Form\ThreadType">
+            <argument>%rjm_comment.model.thread.class%</argument>
+            <tag name="form.type" alias="rjm_comment_thread" />
         </service>
 
-        <service id="fos_comment.form_factory.thread.default" class="RJM\CommentBundle\FormFactory\ThreadFormFactory" public="false">
+        <service id="rjm_comment.form_factory.thread.default" class="RJM\CommentBundle\FormFactory\ThreadFormFactory" public="false">
             <argument type="service" id="form.factory" />
-            <argument>%fos_comment.form.thread.type%</argument>
-            <argument>%fos_comment.form.thread.name%</argument>
+            <argument>%rjm_comment.form.thread.type%</argument>
+            <argument>%rjm_comment.form.thread.name%</argument>
         </service>
 
-        <service id="fos_comment.form_type.vote.default" class="RJM\CommentBundle\Form\VoteType">
-            <argument>%fos_comment.model.vote.class%</argument>
-            <tag name="form.type" alias="fos_comment_vote" />
+        <service id="rjm_comment.form_type.vote.default" class="RJM\CommentBundle\Form\VoteType">
+            <argument>%rjm_comment.model.vote.class%</argument>
+            <tag name="form.type" alias="rjm_comment_vote" />
         </service>
 
-        <service id="fos_comment.form_factory.vote.default" class="RJM\CommentBundle\FormFactory\VoteFormFactory" public="false">
+        <service id="rjm_comment.form_factory.vote.default" class="RJM\CommentBundle\FormFactory\VoteFormFactory" public="false">
             <argument type="service" id="form.factory" />
-            <argument>%fos_comment.form.vote.type%</argument>
-            <argument>%fos_comment.form.vote.name%</argument>
+            <argument>%rjm_comment.form.vote.type%</argument>
+            <argument>%rjm_comment.form.vote.name%</argument>
         </service>
 
     </services>

@@ -1,0 +1,28 @@
+rjm_comment_comment_new_headline_first:       Анхны сэтгэл бичигч болох
+rjm_comment_comment_new_headline:             Шинэ сэтгэгдэл нэмэх
+rjm_comment_comment_new_submit:               Илгээх
+rjm_comment_comment_new_cancel:               Цуцлах
+
+rjm_comment_comment_reply_reply_to:           %name% -д хариу бичих
+rjm_comment_comment_reply_cancel:             Цуцлах
+
+rjm_comment_comment_show_by:                  ""
+rjm_comment_comment_show_voteup:              Нэмэх оноо
+rjm_comment_comment_show_votedown:            Хасах оноо
+rjm_comment_comment_show_reply:               Хариулах
+
+rjm_comment_comment_vote_score:               "Оноо: "
+
+rjm_comment_comment_tree_load_more:           Сэтгэгдлийг цааш унших
+
+Showing %num% comment|Showing %num% comments: %num% сэтгэгдэл харуулна|%num% сэтгэгдэлүүд харуулна
+
+rjm_comment_rss_feed:                         RSS Feed
+
+rjm_comment_thread_close:                     Хэлхээг хаах
+rjm_comment_thread_open:                      Хэлхээг нээх
+rjm_comment_thread_comment_count:             %count% сэтгэгдэлтэй|%count% сэтгэгдэлтэй
+rjm_comment_comment_edit:                     Засах
+rjm_comment_comment_delete:                   Устгах
+rjm_comment_comment_undelete:                 Сэтгэгдлийг сэргээх
+rjm_comment_comment_deleted:                  "[устгагдсан]"

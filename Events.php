@@ -26,7 +26,7 @@ final class Events
      *
      * @var string
      */
-    const COMMENT_PRE_PERSIST = 'fos_comment.comment.pre_persist';
+    const COMMENT_PRE_PERSIST = 'rjm_comment.comment.pre_persist';
 
     /**
      * The POST_PERSIST event occurs after the persistence backend
@@ -39,7 +39,7 @@ final class Events
      *
      * @var string
      */
-    const COMMENT_POST_PERSIST = 'fos_comment.comment.post_persist';
+    const COMMENT_POST_PERSIST = 'rjm_comment.comment.post_persist';
 
     /**
      * The CREATE event occurs when the manager is asked to create
@@ -50,7 +50,7 @@ final class Events
      *
      * @var string
      */
-    const COMMENT_CREATE = 'fos_comment.comment.create';
+    const COMMENT_CREATE = 'rjm_comment.comment.create';
 
     /**
      * The PRE_PERSIST event occurs prior to the persistence backend
@@ -62,7 +62,7 @@ final class Events
      *
      * @var string
      */
-    const THREAD_PRE_PERSIST = 'fos_comment.thread.pre_persist';
+    const THREAD_PRE_PERSIST = 'rjm_comment.thread.pre_persist';
 
     /**
      * The POST_PERSIST event occurs after the persistence backend
@@ -75,7 +75,7 @@ final class Events
      *
      * @var string
      */
-    const THREAD_POST_PERSIST = 'fos_comment.thread.post_persist';
+    const THREAD_POST_PERSIST = 'rjm_comment.thread.post_persist';
 
     /**
      * The CREATE event occurs when the manager is asked to create
@@ -86,7 +86,7 @@ final class Events
      *
      * @var string
      */
-    const THREAD_CREATE = 'fos_comment.thread.create';
+    const THREAD_CREATE = 'rjm_comment.thread.create';
 
     /**
      * The PRE_PERSIST event occurs prior to the persistence backend
@@ -98,7 +98,7 @@ final class Events
      *
      * @var string
      */
-    const VOTE_PRE_PERSIST = 'fos_comment.vote.pre_persist';
+    const VOTE_PRE_PERSIST = 'rjm_comment.vote.pre_persist';
 
     /**
      * The POST_PERSIST event occurs after the persistence backend
@@ -111,7 +111,7 @@ final class Events
      *
      * @var string
      */
-    const VOTE_POST_PERSIST = 'fos_comment.vote.post_persist';
+    const VOTE_POST_PERSIST = 'rjm_comment.vote.post_persist';
 
     /**
      * The CREATE event occurs when the manager is asked to create
@@ -122,5 +122,5 @@ final class Events
      *
      * @var string
      */
-    const VOTE_CREATE = 'fos_comment.vote.create';
+    const VOTE_CREATE = 'rjm_comment.vote.create';
 }

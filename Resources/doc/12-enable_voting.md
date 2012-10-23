@@ -10,8 +10,8 @@ the appropriate instructions to set up the classes:
 - [Doctrine ORM](12a-mapping_orm.md)
 - [Doctrine ODM (mongodb)](12b-mapping_mongodb.md)
 
-### Integration with fosuserbundle
-- [Integration with RJMUserBundle](12c-integration_with_fosuserbundle.md)
+### Integration with rjmuserbundle
+- [Integration with RJMUserBundle](12c-integration_with_rjmuserbundle.md)
 
 ## That is it!
 [Return to the index.](index.md)

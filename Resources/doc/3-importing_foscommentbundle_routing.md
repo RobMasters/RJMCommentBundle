@@ -3,7 +3,7 @@ Step 3: Import RJMCommentBundle routing
 Import the bundle routing:
 
 ``` yaml
-fos_comment_api:
+rjm_comment_api:
     type: rest
     resource: "@RJMCommentBundle/Resources/config/routing.yml"
     prefix: /api

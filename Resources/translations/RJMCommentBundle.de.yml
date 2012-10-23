@@ -1,0 +1,28 @@
+rjm_comment_comment_new_headline_first:       Schreiben Sie den ersten Kommentar
+rjm_comment_comment_new_headline:             Schreiben Sie Ihren Kommentar
+rjm_comment_comment_new_submit:               Senden
+rjm_comment_comment_new_cancel:               Abbrechen
+
+rjm_comment_comment_reply_reply_to:           Antworten auf %name%
+rjm_comment_comment_reply_cancel:             Abbrechen
+
+rjm_comment_comment_show_by:                  Von
+rjm_comment_comment_show_voteup:              Aufwerten
+rjm_comment_comment_show_votedown:            Abwerten
+rjm_comment_comment_show_reply:               Antworten
+
+rjm_comment_comment_vote_score:               "Punkte: "
+
+rjm_comment_comment_tree_load_more:           Lade weitere Antworten
+
+Showing %num% comment|Showing %num% comments: Zeige %num% Kommentar|Zeige %num% Kommentare
+
+rjm_comment_rss_feed:                         RSS Feed
+
+rjm_comment_thread_close:                     Thread schließen
+rjm_comment_thread_open:                      Thread öffnen
+rjm_comment_thread_comment_count:             %count% Kommentar|%count% Kommentare
+rjm_comment_comment_edit:                     Bearbeiten
+rjm_comment_comment_delete:                   Kommentar bearbeiten
+rjm_comment_comment_undelete:                 Löschen rückgängig machen
+rjm_comment_comment_deleted:                  "[gelöscht]"

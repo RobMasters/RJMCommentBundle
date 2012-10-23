@@ -1,0 +1,28 @@
+rjm_comment_comment_new_headline_first:       Be the first to comment
+rjm_comment_comment_new_headline:             Add New Comment
+rjm_comment_comment_new_submit:               Post
+rjm_comment_comment_new_cancel:               Cancel
+
+rjm_comment_comment_reply_reply_to:           Replying to %name%
+rjm_comment_comment_reply_cancel:             Cancel
+
+rjm_comment_comment_show_by:                  By
+rjm_comment_comment_show_voteup:              Vote up
+rjm_comment_comment_show_votedown:            Vote down
+rjm_comment_comment_show_reply:               Reply
+
+rjm_comment_comment_vote_score:               "Score: "
+
+rjm_comment_comment_tree_load_more:           Load More Replies
+
+Showing %num% comment|Showing %num% comments: Showing %num% comment|Showing %num% comments
+
+rjm_comment_rss_feed:                         RSS Feed
+
+rjm_comment_thread_close:                     Close thread
+rjm_comment_thread_open:                      Open thread
+rjm_comment_thread_comment_count:             %count% comment|%count% comments
+rjm_comment_comment_edit:                     Edit
+rjm_comment_comment_delete:                   Delete comment
+rjm_comment_comment_undelete:                 Undelete comment
+rjm_comment_comment_deleted:                  "[deleted]"

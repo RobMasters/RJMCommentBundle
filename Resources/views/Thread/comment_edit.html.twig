@@ -9,20 +9,20 @@
 
 #}
 
-<div class="fos_comment_comment_form_holder">
-    <form class="fos_comment_comment_edit_form" action="{{ url('fos_comment_put_thread_comments', {'id': comment.thread.id, 'commentId': comment.id}) }}" method="POST">
+<div class="rjm_comment_comment_form_holder">
+    <form class="rjm_comment_comment_edit_form" action="{{ url('rjm_comment_put_thread_comments', {'id': comment.thread.id, 'commentId': comment.id}) }}" method="POST">
 
-        {% block fos_comment_form_fields %}
+        {% block rjm_comment_form_fields %}
             {{ form_errors(form) }}
             {{ form_errors(form.body) }}
             {{ form_widget(form.body) }}
             {{ form_widget(form._token) }}
         {% endblock %}
 
-        <div class="fos_comment_submit">
-            <button type="button" class="fos_comment_comment_edit_cancel">{% trans from 'RJMCommentBundle' %}fos_comment_comment_new_cancel{% endtrans %}</button>
-            {% block fos_comment_form_submit %}
-                <input type="submit" value="{% trans from 'RJMCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" />
+        <div class="rjm_comment_submit">
+            <button type="button" class="rjm_comment_comment_edit_cancel">{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_cancel{% endtrans %}</button>
+            {% block rjm_comment_form_submit %}
+                <input type="submit" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
             {% endblock %}
         </div>
 

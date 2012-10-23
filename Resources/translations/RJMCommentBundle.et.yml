@@ -1,0 +1,28 @@
+rjm_comment_comment_new_headline_first:       Ole esimene, kes kommenteerib
+rjm_comment_comment_new_headline:             Lisa uus kommentaar
+rjm_comment_comment_new_submit:               Postita
+rjm_comment_comment_new_cancel:               Tühista
+
+rjm_comment_comment_reply_reply_to:           Vasta %name%
+rjm_comment_comment_reply_cancel:             Tühista
+
+rjm_comment_comment_show_by:                  Kellelt
+rjm_comment_comment_show_voteup:              Hääleta poolt
+rjm_comment_comment_show_votedown:            Hääleta vastu
+rjm_comment_comment_show_reply:               Vasta
+
+rjm_comment_comment_vote_score:               "Skoor: "
+
+rjm_comment_comment_tree_load_more:           Näita veel kommentaare
+
+Näita %num% kommentaari|Näita %num% kommentaare: Näita %num% kommentaari|Näita %num% kommentaare
+
+rjm_comment_rss_feed:                         RSS feed
+
+rjm_comment_thread_close:                     Sulge
+rjm_comment_thread_open:                      Ava
+rjm_comment_thread_comment_count:             %count% comment|%count% kommentaarid
+rjm_comment_comment_edit:                     Muuda
+rjm_comment_comment_delete:                   Kustuta kommentaar
+rjm_comment_comment_undelete:                 Taasta kommentaar
+rjm_comment_comment_deleted:                  "[kustutatud]"

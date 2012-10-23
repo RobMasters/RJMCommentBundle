@@ -14,17 +14,17 @@ At a minimum, you will need to include the following in your action's PHP code:
 public function somethingAction(Request $request)
 {
     $id = 'thread_id';
-    $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+    $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
     if (null === $thread) {
-        $thread = $this->container->get('fos_comment.manager.thread')->createThread();
+        $thread = $this->container->get('rjm_comment.manager.thread')->createThread();
         $thread->setId($id);
         $thread->setPermalink($request->getUri());
 
         // Add the thread
-        $this->container->get('fos_comment.manager.thread')->saveThread($thread);
+        $this->container->get('rjm_comment.manager.thread')->saveThread($thread);
     }
 
-    $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread);
+    $comments = $this->container->get('rjm_comment.manager.comment')->findCommentTreeByThread($thread);
 
     return $this->render('AcmeDemoBundle:Controller:something.html.twig', array(
         'comments' => $comments,
@@ -39,7 +39,7 @@ template:
 ``` jinga
 {% block body %}
 {# ... #}
-<div id="fos_comment_thread" data-thread="{{ thread.id }}">
+<div id="rjm_comment_thread" data-thread="{{ thread.id }}">
 
 {% include 'RJMCommentBundle:Thread:comments.html.twig' with {
     'comments': comments,
@@ -55,7 +55,7 @@ template:
 {% javascripts '@RJMCommentBundle/Resources/assets/js/comments.js' %}
 <script type="text/javascript" src="{{ asset_url }}">
 // URI identifier for the thread comments
-var fos_comment_thread_id = '{{ path('fos_comment_get_thread_comments', {'id': thread.id}) }}';
+var rjm_comment_thread_id = '{{ path('rjm_comment_get_thread_comments', {'id': thread.id}) }}';
 </script>
 {% endjavascripts %}
 {% endblock javascript %}

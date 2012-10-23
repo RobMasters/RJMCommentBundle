@@ -1,0 +1,28 @@
+rjm_comment_comment_new_headline_first:       اولین نظر را بدهید
+rjm_comment_comment_new_headline:             افزودن نظر
+rjm_comment_comment_new_submit:               فرستادن
+rjm_comment_comment_new_cancel:               لغو
+
+rjm_comment_comment_reply_reply_to:           جواب دادن به %name%
+rjm_comment_comment_reply_cancel:             لغو
+
+rjm_comment_comment_show_by:                  بر اساس
+rjm_comment_comment_show_voteup:              رای مثبت
+rjm_comment_comment_show_votedown:            رای منفی
+rjm_comment_comment_show_reply:               جواب
+
+rjm_comment_comment_vote_score:               "امتیاز: "
+
+rjm_comment_comment_tree_load_more:           بارگزاری جواب های بیشتر
+
+Showing %num% comment|Showing %num% comments: نمایش %num% نظر|نمایش %num% نظر
+
+rjm_comment_rss_feed:                         خوراک RSS
+
+rjm_comment_thread_close:                     بستن رشته
+rjm_comment_thread_open:                      گشودن رشته
+rjm_comment_thread_comment_count:             %count% نظر|%count% نظر
+rjm_comment_comment_edit:                     ویرایش
+rjm_comment_comment_delete:                   حذف نظر
+rjm_comment_comment_undelete:                 بهنگام سازی نظر
+rjm_comment_comment_deleted:                  "[حذف شده]"

@@ -40,10 +40,10 @@ class CommentExtension extends \Twig_Extension
     public function getTests()
     {
         return array(
-            'fos_comment_deleted'         => new \Twig_Test_Method($this, 'isCommentDeleted'),
-            'fos_comment_in_state'        => new \Twig_Test_Method($this, 'isCommentInState'),
-            'fos_comment_votable'         => new \Twig_Test_Method($this, 'isVotable'),
-            'fos_comment_raw'             => new \Twig_Test_Method($this, 'isRawComment'),
+            'rjm_comment_deleted'         => new \Twig_Test_Method($this, 'isCommentDeleted'),
+            'rjm_comment_in_state'        => new \Twig_Test_Method($this, 'isCommentInState'),
+            'rjm_comment_votable'         => new \Twig_Test_Method($this, 'isVotable'),
+            'rjm_comment_raw'             => new \Twig_Test_Method($this, 'isRawComment'),
         );
     }
 
@@ -93,12 +93,12 @@ class CommentExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'fos_comment_can_comment'        => new \Twig_Function_Method($this, 'canComment'),
-            'fos_comment_can_vote'           => new \Twig_Function_Method($this, 'canVote'),
-            'fos_comment_can_delete_comment' => new \Twig_Function_Method($this, 'canDeleteComment'),
-            'fos_comment_can_edit_comment'   => new \Twig_Function_Method($this, 'canEditComment'),
-            'fos_comment_can_edit_thread'    => new \Twig_Function_Method($this, 'canEditThread'),
-            'fos_comment_can_comment_thread' => new \Twig_Function_Method($this, 'canCommentThread'),
+            'rjm_comment_can_comment'        => new \Twig_Function_Method($this, 'canComment'),
+            'rjm_comment_can_vote'           => new \Twig_Function_Method($this, 'canVote'),
+            'rjm_comment_can_delete_comment' => new \Twig_Function_Method($this, 'canDeleteComment'),
+            'rjm_comment_can_edit_comment'   => new \Twig_Function_Method($this, 'canEditComment'),
+            'rjm_comment_can_edit_thread'    => new \Twig_Function_Method($this, 'canEditThread'),
+            'rjm_comment_can_comment_thread' => new \Twig_Function_Method($this, 'canCommentThread'),
         );
     }
 
@@ -227,6 +227,6 @@ class CommentExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'fos_comment';
+        return 'rjm_comment';
     }
 }

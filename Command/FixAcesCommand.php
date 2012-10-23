@@ -31,7 +31,7 @@ class FixAcesCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('fos:comment:fixAces')
+            ->setName('rjm:comment:fixAces')
             ->setDescription('Fixes Object Ace entries')
             ->setHelp(<<<EOT
 This command will fix all Ace entries for existing objects. This command only needs to
@@ -57,14 +57,14 @@ EOT
 
         $provider = $this->getContainer()->get('security.acl.provider');
 
-        $threadAcl = $this->getContainer()->get('fos_comment.acl.thread');
-        $threadManager = $this->getContainer()->get('fos_comment.manager.thread.default');
+        $threadAcl = $this->getContainer()->get('rjm_comment.acl.thread');
+        $threadManager = $this->getContainer()->get('rjm_comment.manager.thread.default');
 
-        $commentAcl = $this->getContainer()->get('fos_comment.acl.comment');
-        $commentManager = $this->getContainer()->get('fos_comment.manager.comment.default');
+        $commentAcl = $this->getContainer()->get('rjm_comment.acl.comment');
+        $commentManager = $this->getContainer()->get('rjm_comment.manager.comment.default');
 
-        $voteAcl = $this->getContainer()->get('fos_comment.acl.vote');
-        $voteManager = $this->getContainer()->get('fos_comment.manager.vote.default');
+        $voteAcl = $this->getContainer()->get('rjm_comment.acl.vote');
+        $voteManager = $this->getContainer()->get('rjm_comment.manager.vote.default');
 
         $foundThreadAcls = 0;
         $foundCommentAcls = 0;

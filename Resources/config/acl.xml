@@ -14,75 +14,75 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="fos_comment.manager.thread.acl.class">RJM\CommentBundle\Acl\AclThreadManager</parameter>
-        <parameter key="fos_comment.manager.comment.acl.class">RJM\CommentBundle\Acl\AclCommentManager</parameter>
-        <parameter key="fos_comment.manager.vote.acl.class">RJM\CommentBundle\Acl\AclVoteManager</parameter>
+        <parameter key="rjm_comment.manager.thread.acl.class">RJM\CommentBundle\Acl\AclThreadManager</parameter>
+        <parameter key="rjm_comment.manager.comment.acl.class">RJM\CommentBundle\Acl\AclCommentManager</parameter>
+        <parameter key="rjm_comment.manager.vote.acl.class">RJM\CommentBundle\Acl\AclVoteManager</parameter>
     </parameters>
 
     <services>
-        <service id="fos_comment.acl.thread.security" class="RJM\CommentBundle\Acl\SecurityThreadAcl" public="false">
+        <service id="rjm_comment.acl.thread.security" class="RJM\CommentBundle\Acl\SecurityThreadAcl" public="false">
             <argument type="service" id="security.context" />
             <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
             <argument type="service" id="security.acl.provider" />
-            <argument>%fos_comment.model.thread.class%</argument>
+            <argument>%rjm_comment.model.thread.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.comment.security" class="RJM\CommentBundle\Acl\SecurityCommentAcl" public="false">
+        <service id="rjm_comment.acl.comment.security" class="RJM\CommentBundle\Acl\SecurityCommentAcl" public="false">
             <argument type="service" id="security.context" />
             <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
             <argument type="service" id="security.acl.provider" />
-            <argument>%fos_comment.model.comment.class%</argument>
+            <argument>%rjm_comment.model.comment.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.vote.security" class="RJM\CommentBundle\Acl\SecurityVoteAcl" public="false">
+        <service id="rjm_comment.acl.vote.security" class="RJM\CommentBundle\Acl\SecurityVoteAcl" public="false">
             <argument type="service" id="security.context" />
             <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
             <argument type="service" id="security.acl.provider" />
-            <argument>%fos_comment.model.vote.class%</argument>
+            <argument>%rjm_comment.model.vote.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.thread.roles" class="RJM\CommentBundle\Acl\RoleThreadAcl" public="false">
+        <service id="rjm_comment.acl.thread.roles" class="RJM\CommentBundle\Acl\RoleThreadAcl" public="false">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
             <argument /> <!-- View role -->
             <argument /> <!-- Edit role -->
             <argument /> <!-- Delete role -->
-            <argument>%fos_comment.model.thread.class%</argument>
+            <argument>%rjm_comment.model.thread.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.comment.roles" class="RJM\CommentBundle\Acl\RoleCommentAcl" public="false">
+        <service id="rjm_comment.acl.comment.roles" class="RJM\CommentBundle\Acl\RoleCommentAcl" public="false">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
             <argument /> <!-- View role -->
             <argument /> <!-- Edit role -->
             <argument /> <!-- Delete role -->
-            <argument>%fos_comment.model.comment.class%</argument>
+            <argument>%rjm_comment.model.comment.class%</argument>
         </service>
 
-        <service id="fos_comment.acl.vote.roles" class="RJM\CommentBundle\Acl\RoleVoteAcl" public="false">
+        <service id="rjm_comment.acl.vote.roles" class="RJM\CommentBundle\Acl\RoleVoteAcl" public="false">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
             <argument /> <!-- View role -->
             <argument /> <!-- Edit role -->
             <argument /> <!-- Delete role -->
-            <argument>%fos_comment.model.vote.class%</argument>
+            <argument>%rjm_comment.model.vote.class%</argument>
         </service>
 
-        <service id="fos_comment.manager.thread.acl" class="%fos_comment.manager.thread.acl.class%" public="false">
-            <argument type="service" id="fos_comment.manager.thread.default" />
-            <argument type="service" id="fos_comment.acl.thread" />
+        <service id="rjm_comment.manager.thread.acl" class="%rjm_comment.manager.thread.acl.class%" public="false">
+            <argument type="service" id="rjm_comment.manager.thread.default" />
+            <argument type="service" id="rjm_comment.acl.thread" />
         </service>
 
-        <service id="fos_comment.manager.comment.acl" class="%fos_comment.manager.comment.acl.class%" public="false">
-            <argument type="service" id="fos_comment.manager.comment.default" />
-            <argument type="service" id="fos_comment.acl.comment" />
-            <argument type="service" id="fos_comment.acl.thread" />
+        <service id="rjm_comment.manager.comment.acl" class="%rjm_comment.manager.comment.acl.class%" public="false">
+            <argument type="service" id="rjm_comment.manager.comment.default" />
+            <argument type="service" id="rjm_comment.acl.comment" />
+            <argument type="service" id="rjm_comment.acl.thread" />
         </service>
 
-        <service id="fos_comment.manager.vote.acl" class="%fos_comment.manager.vote.acl.class%" public="false">
-            <argument type="service" id="fos_comment.manager.vote.default" />
-            <argument type="service" id="fos_comment.acl.vote" />
-            <argument type="service" id="fos_comment.acl.comment" />
+        <service id="rjm_comment.manager.vote.acl" class="%rjm_comment.manager.vote.acl.class%" public="false">
+            <argument type="service" id="rjm_comment.manager.vote.default" />
+            <argument type="service" id="rjm_comment.acl.vote" />
+            <argument type="service" id="rjm_comment.acl.comment" />
         </service>
     </services>
 </container>

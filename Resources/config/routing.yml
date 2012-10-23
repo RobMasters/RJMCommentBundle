@@ -6,7 +6,7 @@
 # This source file is subject to the MIT license that is bundled
 # with this source code in the file LICENSE.
 #
-fos_comment_thread_api:
+rjm_comment_thread_api:
     type: rest
     resource: RJM\CommentBundle\Controller\ThreadController
-    name_prefix: fos_comment_
+    name_prefix: rjm_comment_

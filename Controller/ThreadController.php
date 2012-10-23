@@ -13,9 +13,9 @@ namespace RJM\CommentBundle\Controller;
 
 use RJM\CommentBundle\Model\CommentInterface;
 use RJM\CommentBundle\Model\ThreadInterface;
-use RJM\Rest\Util\Codes;
-use RJM\RestBundle\View\RouteRedirectView;
-use RJM\RestBundle\View\View;
+use FOS\Rest\Util\Codes;
+use FOS\RestBundle\View\RouteRedirectView;
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
 use Symfony\Component\Form\FormInterface;
@@ -40,7 +40,7 @@ class ThreadController extends Controller
      */
     public function newThreadsAction()
     {
-        $form = $this->container->get('fos_comment.form_factory.thread')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.thread')->createForm();
 
         $view = View::create()
             ->setData(array('form' => $form->createView()))
@@ -58,7 +58,7 @@ class ThreadController extends Controller
      */
     public function getThreadAction($id)
     {
-        $manager = $this->container->get('fos_comment.manager.thread');
+        $manager = $this->container->get('rjm_comment.manager.thread');
         $thread = $manager->findThreadById($id);
 
         if (null === $thread) {
@@ -82,7 +82,7 @@ class ThreadController extends Controller
     {
         $ids = $request->query->get('ids');
 
-        $threads = $this->container->get('fos_comment.manager.thread')->findThreadsBy(array('id' => $ids));
+        $threads = $this->container->get('rjm_comment.manager.thread')->findThreadsBy(array('id' => $ids));
 
         $view = View::create()
             ->setData(array('threads' => $threads));
@@ -97,9 +97,9 @@ class ThreadController extends Controller
      */
     public function postThreadsAction()
     {
-        $threadManager = $this->container->get('fos_comment.manager.thread');
+        $threadManager = $this->container->get('rjm_comment.manager.thread');
         $thread = $threadManager->createThread();
-        $form = $this->container->get('fos_comment.form_factory.thread')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.thread')->createForm();
         $form->setData($thread);
 
         $request = $this->container->get('request');
@@ -131,7 +131,7 @@ class ThreadController extends Controller
      */
     public function editThreadCommentableAction(Request $request, $id)
     {
-        $manager = $this->container->get('fos_comment.manager.thread');
+        $manager = $this->container->get('rjm_comment.manager.thread');
         $thread = $manager->findThreadById($id);
 
         if (null === $thread) {
@@ -140,7 +140,7 @@ class ThreadController extends Controller
 
         $thread->setCommentable($this->getRequest()->query->get('value', 1));
 
-        $form = $this->container->get('fos_comment.form_factory.commentable_thread')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.commentable_thread')->createForm();
         $form->setData($thread);
 
         $view = View::create()
@@ -160,14 +160,14 @@ class ThreadController extends Controller
      */
     public function patchThreadCommentableAction(Request $request, $id)
     {
-        $manager = $this->container->get('fos_comment.manager.thread');
+        $manager = $this->container->get('rjm_comment.manager.thread');
         $thread = $manager->findThreadById($id);
 
         if (null === $thread) {
             throw new NotFoundHttpException(sprintf("Thread with id '%s' could not be found.", $id));
         }
 
-        $form = $this->container->get('fos_comment.form_factory.commentable_thread')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.commentable_thread')->createForm();
         $form->setData($thread);
 
         if ('PATCH' === $request->getMethod()) {
@@ -192,16 +192,16 @@ class ThreadController extends Controller
      */
     public function newThreadCommentsAction($id)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
         if (!$thread) {
             throw new NotFoundHttpException(sprintf('Thread with identifier of "%s" does not exist', $id));
         }
 
-        $comment = $this->container->get('fos_comment.manager.comment')->createComment($thread);
+        $comment = $this->container->get('rjm_comment.manager.comment')->createComment($thread);
 
         $parent = $this->getValidCommentParent($thread, $this->getRequest()->query->get('parentId'));
 
-        $form = $this->container->get('fos_comment.form_factory.comment')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.comment')->createForm();
         $form->setData($comment);
 
         $view = View::create()
@@ -227,8 +227,8 @@ class ThreadController extends Controller
      */
     public function getThreadCommentAction($id, $commentId)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
+        $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
@@ -252,14 +252,14 @@ class ThreadController extends Controller
      */
     public function removeThreadCommentAction(Request $request, $id, $commentId)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
+        $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
         }
 
-        $form = $this->container->get('fos_comment.form_factory.delete_comment')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.delete_comment')->createForm();
         $comment->setState($request->query->get('value', $comment::STATE_DELETED));
 
         $form->setData($comment);
@@ -282,15 +282,15 @@ class ThreadController extends Controller
      */
     public function patchThreadCommentStateAction(Request $request, $id, $commentId)
     {
-        $manager = $this->container->get('fos_comment.manager.comment');
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        $manager = $this->container->get('rjm_comment.manager.comment');
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
         $comment = $manager->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
         }
 
-        $form = $this->container->get('fos_comment.form_factory.delete_comment')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.delete_comment')->createForm();
         $form->setData($comment);
 
         $form->bindRequest($request);
@@ -314,14 +314,14 @@ class ThreadController extends Controller
      */
     public function editThreadCommentAction($id, $commentId)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
+        $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
         }
 
-        $form = $this->container->get('fos_comment.form_factory.comment')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.comment')->createForm();
         $form->setData($comment);
 
         $view = View::create()
@@ -345,16 +345,16 @@ class ThreadController extends Controller
      */
     public function putThreadCommentsAction(Request $request, $id, $commentId)
     {
-        $commentManager = $this->container->get('fos_comment.manager.comment');
+        $commentManager = $this->container->get('rjm_comment.manager.comment');
 
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
         $comment = $commentManager->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
         }
 
-        $form = $this->container->get('fos_comment.form_factory.comment')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.comment')->createForm();
         $form->setData($comment);
         $form->bindRequest($request);
 
@@ -380,23 +380,23 @@ class ThreadController extends Controller
     {
         $displayDepth = $request->query->get('displayDepth');
         $sorter = $request->query->get('sorter');
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
 
         // We're now sure it is no duplicate id, so create the thread
         if (null === $thread) {
-            $thread = $this->container->get('fos_comment.manager.thread')
+            $thread = $this->container->get('rjm_comment.manager.thread')
                 ->createThread();
             $thread->setId($id);
             $thread->setPermalink($request->query->get('permalink'));
 
             // Add the thread
-            $this->container->get('fos_comment.manager.thread')->saveThread($thread);
+            $this->container->get('rjm_comment.manager.thread')->saveThread($thread);
         }
 
         $viewMode = $request->query->get('view', 'tree');
         switch ($viewMode) {
             case self::VIEW_FLAT:
-                $comments = $this->container->get('fos_comment.manager.comment')->findCommentsByThread($thread, $displayDepth, $sorter);
+                $comments = $this->container->get('rjm_comment.manager.comment')->findCommentsByThread($thread, $displayDepth, $sorter);
 
                 // We need nodes for the api to return a consistent response, not an array of comments
                 $comments = array_map(function($comment) {
@@ -407,7 +407,7 @@ class ThreadController extends Controller
                 break;
             case self::VIEW_TREE:
             default:
-                $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread, $sorter, $displayDepth);
+                $comments = $this->container->get('rjm_comment.manager.comment')->findCommentTreeByThread($thread, $sorter, $displayDepth);
                 break;
         }
 
@@ -446,16 +446,16 @@ class ThreadController extends Controller
      */
     public function postThreadCommentsAction(Request $request, $id)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
         if (!$thread) {
             throw new NotFoundHttpException(sprintf('Thread with identifier of "%s" does not exist', $id));
         }
 
         $parent = $this->getValidCommentParent($thread, $request->query->get('parentId'));
-        $commentManager = $this->container->get('fos_comment.manager.comment');
+        $commentManager = $this->container->get('rjm_comment.manager.comment');
         $comment = $commentManager->createComment($thread, $parent);
 
-        $form = $this->container->get('fos_comment.form_factory.comment')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.comment')->createForm();
         $form->setData($comment);
         $form->bindRequest($this->container->get('request'));
 
@@ -478,8 +478,8 @@ class ThreadController extends Controller
      */
     public function getThreadCommentVotesAction($id, $commentId)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
+        $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
@@ -504,17 +504,17 @@ class ThreadController extends Controller
      */
     public function newThreadCommentVotesAction($id, $commentId)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
+        $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
         }
 
-        $vote = $this->container->get('fos_comment.manager.vote')->createVote($comment);
+        $vote = $this->container->get('rjm_comment.manager.vote')->createVote($comment);
         $vote->setValue($this->getRequest()->query->get('value', 1));
 
-        $form = $this->container->get('fos_comment.form_factory.vote')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.vote')->createForm();
         $form->setData($vote);
 
         $view = View::create()
@@ -538,17 +538,17 @@ class ThreadController extends Controller
      */
     public function postThreadCommentVotesAction($id, $commentId)
     {
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+        $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
+        $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
 
         if (null === $thread || null === $comment || $comment->getThread() !== $thread) {
             throw new NotFoundHttpException(sprintf("No comment with id '%s' found for thread with id '%s'", $commentId, $id));
         }
 
-        $voteManager = $this->container->get('fos_comment.manager.vote');
+        $voteManager = $this->container->get('rjm_comment.manager.vote');
         $vote = $voteManager->createVote($comment);
 
-        $form = $this->container->get('fos_comment.form_factory.vote')->createForm();
+        $form = $this->container->get('rjm_comment.form_factory.vote')->createForm();
         $form->setData($vote);
 
         $form->bindRequest($this->container->get('request'));
@@ -573,7 +573,7 @@ class ThreadController extends Controller
      */
     protected function onCreateCommentSuccess(FormInterface $form, $id, CommentInterface $parent = null)
     {
-        return RouteRedirectView::create('fos_comment_get_thread_comment', array('id' => $id, 'commentId' => $form->getData()->getId()));
+        return RouteRedirectView::create('rjm_comment_get_thread_comment', array('id' => $id, 'commentId' => $form->getData()->getId()));
     }
 
     /**
@@ -608,7 +608,7 @@ class ThreadController extends Controller
      */
     protected function onCreateThreadSuccess(FormInterface $form)
     {
-        return RouteRedirectView::create('fos_comment_get_thread', array('id' => $form->getData()->getId()));
+        return RouteRedirectView::create('rjm_comment_get_thread', array('id' => $form->getData()->getId()));
     }
 
     /**
@@ -654,7 +654,7 @@ class ThreadController extends Controller
      */
     protected function onCreateVoteSuccess(FormInterface $form, $id, $commentId)
     {
-        return RouteRedirectView::create('fos_comment_get_thread_comment_votes', array('id' => $id, 'commentId' => $commentId));
+        return RouteRedirectView::create('rjm_comment_get_thread_comment_votes', array('id' => $id, 'commentId' => $commentId));
     }
 
     /**
@@ -690,7 +690,7 @@ class ThreadController extends Controller
      */
     protected function onEditCommentSuccess(FormInterface $form, $id)
     {
-        return RouteRedirectView::create('fos_comment_get_thread_comment', array('id' => $id, 'commentId' => $form->getData()->getId()));
+        return RouteRedirectView::create('rjm_comment_get_thread_comment', array('id' => $id, 'commentId' => $form->getData()->getId()));
     }
 
     /**
@@ -723,7 +723,7 @@ class ThreadController extends Controller
      */
     protected function onOpenThreadSuccess(FormInterface $form)
     {
-        return RouteRedirectView::create('fos_comment_edit_thread_commentable', array('id' => $form->getData()->getId(), 'value' => !$form->getData()->isCommentable()));
+        return RouteRedirectView::create('rjm_comment_edit_thread_commentable', array('id' => $form->getData()->getId(), 'value' => !$form->getData()->isCommentable()));
     }
 
     /**
@@ -757,7 +757,7 @@ class ThreadController extends Controller
      */
     protected function onRemoveThreadCommentSuccess(FormInterface $form, $id)
     {
-        return RouteRedirectView::create('fos_comment_get_thread_comment', array('id' => $id, 'commentId' => $form->getData()->getId()));
+        return RouteRedirectView::create('rjm_comment_get_thread_comment', array('id' => $id, 'commentId' => $form->getData()->getId()));
     }
 
     /**
@@ -793,7 +793,7 @@ class ThreadController extends Controller
     private function getValidCommentParent(ThreadInterface $thread, $commentId)
     {
         if (null !== $commentId) {
-            $comment = $this->container->get('fos_comment.manager.comment')->findCommentById($commentId);
+            $comment = $this->container->get('rjm_comment.manager.comment')->findCommentById($commentId);
             if (!$comment) {
                 throw new NotFoundHttpException(sprintf('Parent comment with identifier "%s" does not exist', $commentId));
             }
@@ -807,7 +807,7 @@ class ThreadController extends Controller
     }
 
     /**
-     * @return \RJM\RestBundle\View\ViewHandler
+     * @return \FOS\RestBundle\View\ViewHandler
      */
     private function getViewHandler()
     {

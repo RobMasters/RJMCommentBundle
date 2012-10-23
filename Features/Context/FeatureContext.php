@@ -29,6 +29,6 @@ class FeatureContext extends MinkContext
      */
     private function getThreadManager()
     {
-        return $this->getContainer()->get('fos_comment.manager.thread');
+        return $this->getContainer()->get('rjm_comment.manager.thread');
     }
 }

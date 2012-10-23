@@ -16,13 +16,13 @@ Additionally, your configuration needs to be modified to add the right managers:
 ``` yaml
 # app/config/config.yml
 
-fos_comment:
+rjm_comment:
     acl: true
     service:
         manager:
-            thread:  fos_comment.manager.thread.acl
-            comment: fos_comment.manager.comment.acl
-            vote:    fos_comment.manager.vote.acl
+            thread:  rjm_comment.manager.thread.acl
+            comment: rjm_comment.manager.comment.acl
+            vote:    rjm_comment.manager.vote.acl
 ```
 
 **Note:**
@@ -41,7 +41,7 @@ Finally, you must populate the Acl system with entries that may not be there yet
 by running:
 
 ``` bash
-$ app/console fos:comment:installAces
+$ app/console rjm:comment:installAces
 ```
 
 This will make sure that the Acl entries in the database are correct. This comment

@@ -190,7 +190,7 @@ class SecurityCommentAcl implements CommentAclInterface
      *
      * Override this method in a subclass to change what permissions are defined.
      * Once this method has been overridden you need to run the
-     * `fos:comment:installAces --flush` command
+     * `rjm:comment:installAces --flush` command
      *
      * @param  AclInterface $acl
      * @param  MaskBuilder  $builder

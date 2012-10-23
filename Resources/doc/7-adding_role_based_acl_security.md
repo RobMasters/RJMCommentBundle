@@ -14,17 +14,17 @@ To configure Role based security override the Acl services:
 ``` yaml
 # app/config/config.yml
 
-fos_comment:
+rjm_comment:
     acl: true
     service:
         acl:
-            thread:  fos_comment.acl.thread.roles
-            comment: fos_comment.acl.comment.roles
-            vote:    fos_comment.acl.vote.roles
+            thread:  rjm_comment.acl.thread.roles
+            comment: rjm_comment.acl.comment.roles
+            vote:    rjm_comment.acl.vote.roles
         manager:
-            thread:  fos_comment.manager.thread.acl
-            comment: fos_comment.manager.comment.acl
-            vote:    fos_comment.manager.vote.acl
+            thread:  rjm_comment.manager.thread.acl
+            comment: rjm_comment.manager.comment.acl
+            vote:    rjm_comment.manager.vote.acl
 ```
 
 To change the roles required for specific actions, modify the `acl_roles` configuration
@@ -33,7 +33,7 @@ key:
 ``` yaml
 # app/config/config.yml
 
-fos_comment:
+rjm_comment:
     acl_roles:
         comment:
             create: IS_AUTHENTICATED_ANONYMOUSLY
