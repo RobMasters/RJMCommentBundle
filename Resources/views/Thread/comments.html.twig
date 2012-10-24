@@ -13,20 +13,22 @@
 {% set view = view|default('tree') %}
 
 {% if depth == 0 %}
-    {% if rjm_comment_can_comment_thread(thread) %}
-        {% render "RJMCommentBundle:Thread:newThreadComments" with {"id": thread.id} %}
-    {% endif %}
-
     {% if rjm_comment_can_edit_thread(thread) %}
-    <div class="rjm_comment_thread_commentable">
-        <button data-url="{{ url('rjm_comment_edit_thread_commentable', {'id': thread.id, 'value': not thread.commentable}) }}" class="rjm_comment_thread_commentable_action">
-            {{ (thread.commentable ? 'rjm_comment_thread_close' : 'rjm_comment_thread_open') | trans({}, 'RJMCommentBundle') }}
-        </button>
-    </div>
+        <div class="rjm_comment_thread_commentable">
+            <button data-url="{{ url('rjm_comment_edit_thread_commentable', {'id': thread.id, 'value': not thread.commentable}) }}" class="rjm_comment_thread_commentable_action btn btn-danger">
+                {{ (thread.commentable ? 'rjm_comment_thread_close' : 'rjm_comment_thread_open') | trans({}, 'RJMCommentBundle') }}
+            </button>
+        </div>
     {% endif %}
 
-    {% set count = thread.numComments %}
-    <h3>{% transchoice count with {'%count%': count} from "RJMCommentBundle" %}rjm_comment_thread_comment_count{% endtranschoice %}</h3>
+    {% if rjm_comment_can_comment_thread(thread) %}
+        <div id="new-comment-container">
+            {% render "RJMCommentBundle:Thread:newThreadComments" with {"id": thread.id} %}
+        </div>
+    {% endif %}
+
+    {#{% set count = thread.numComments %}#}
+    {#<h3>{% transchoice count with {'%count%': count} from "RJMCommentBundle" %}rjm_comment_thread_comment_count{% endtranschoice %}</h3>#}
 {% endif %}
 
 {% for commentinfo in comments %}

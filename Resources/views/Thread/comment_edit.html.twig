@@ -20,9 +20,9 @@
         {% endblock %}
 
         <div class="rjm_comment_submit">
-            <button type="button" class="rjm_comment_comment_edit_cancel">{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_cancel{% endtrans %}</button>
+            <button type="button" class="rjm_comment_comment_edit_cancel btn btn-danger">{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_cancel{% endtrans %}</button>
             {% block rjm_comment_form_submit %}
-                <input type="submit" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
+                <input type="submit" class="btn btn-success" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
             {% endblock %}
         </div>
 

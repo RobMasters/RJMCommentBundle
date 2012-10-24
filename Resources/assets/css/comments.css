@@ -29,6 +29,12 @@ div.rjm_comment_thread_show h3 {
 div.rjm_comment_comment_show {
     color: #555;
 }
+span.rjm_comment_comment_authorname {
+    font: 20px 'LeagueGothicRegular', Arial, sans-serif;
+    color: #A6475F;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
 div.rjm_comment_comment_metas {
     margin: 1.5em 0 0.5em 0;
     padding: 4px 20px;
@@ -39,10 +45,14 @@ div.rjm_comment_comment_metas {
     -moz-border-radius: 4px;
 }
 div.rjm_comment_comment_buttons {
-    margin: -1px -10px 0 10px;
+    margin: 2px -10px 0 10px;
 }
 div.rjm_comment_comment_body {
     line-height: 1.5em;
+    padding: 5px;
+    background: #fff;
+    border-bottom: 1px dashed #F3809A;
+    margin-bottom: 5px;
 }
 div.rjm_comment_comment_replies {
     margin-left: 2em;
@@ -112,7 +122,6 @@ a.rjm_comment_thread_feed {
 }
 div.rjm_comment_comment_voting {
     float: right;
-    margin-top: -2px;
 }
 div.rjm_comment_comment_score {
     display: inline-block;

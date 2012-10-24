@@ -15,7 +15,7 @@
     <div class="rjm_comment_comment_metas">
         {% block rjm_comment_comment_metas %}
             {% block rjm_comment_comment_metas_authorline %}
-                {% trans from 'RJMCommentBundle' %}rjm_comment_comment_show_by{% endtrans %}
+                {#{% trans from 'RJMCommentBundle' %}rjm_comment_comment_show_by{% endtrans %}#}
                 <span class="rjm_comment_comment_authorname">
                     {% if comment is rjm_comment_in_state(constant('RJM\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')) %}
                 {% trans from 'RJMCommentBundle' %}rjm_comment_comment_deleted{% endtrans %}
@@ -76,7 +76,7 @@
                 {% if rjm_comment_can_comment(comment) %}
                     <div class="rjm_comment_comment_reply">
                         {% block rjm_comment_comment_reply %}
-                            <button data-url="{{ url('rjm_comment_new_thread_comments', {"id": comment.thread.id}) }}" data-name="{{ comment.authorName }}" data-parent-id="{{ comment.id }}" class="rjm_comment_comment_reply_show_form">{% trans from 'RJMCommentBundle' %}rjm_comment_comment_show_reply{% endtrans %}</button>
+                            <button data-url="{{ url('rjm_comment_new_thread_comments', {"id": comment.thread.id}) }}" data-name="{{ comment.authorName }}" data-parent-id="{{ comment.id }}" class="rjm_comment_comment_reply_show_form btn btn-small">{% trans from 'RJMCommentBundle' %}rjm_comment_comment_show_reply{% endtrans %}</button>
                         {% endblock rjm_comment_comment_reply %}
                     </div>
                 {% endif %}

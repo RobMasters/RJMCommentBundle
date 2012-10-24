@@ -446,6 +446,12 @@ class ThreadController extends Controller
      */
     public function postThreadCommentsAction(Request $request, $id)
     {
+        if ($this->getUser() === null) {
+            return new \Symfony\Component\HttpFoundation\JsonResponse(array(
+                'authorised' => false
+            ));
+        }
+
         /** @var $thread ThreadInterface */
         $thread = $this->container->get('rjm_comment.manager.thread')->findThreadById($id);
         if (!$thread) {

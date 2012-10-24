@@ -106,10 +106,18 @@
          * Initialize the event listeners.
          */
         initializeListeners: function() {
+            RJM_COMMENT.authentication.modal({show: false});
+
+            $('#sign-in-her-form_comment').submit(function(event) {
+                event.preventDefault();
+
+                var authForm = $(event.target);
+                $.post(authForm.attr('action'), authForm.serialize(), RJM_COMMENT.onAuthorised);
+            });
 
             RJM_COMMENT.thread_container.on('submit',
                 'form.rjm_comment_comment_new_form',
-                function(e) {
+                function(e, callback) {
                     var that = $(this);
 
                     RJM_COMMENT.post(
@@ -117,13 +125,25 @@
                         RJM_COMMENT.serializeObject(this),
                         // success
                         function(data, statusCode) {
-                            RJM_COMMENT.appendComment(data, that);
+                            if (data.authorised === false) {
+                                RJM_COMMENT.authorise($.proxy(that.onAuthorised, that));
+                            } else {
+                                RJM_COMMENT.appendComment(data, that);
+
+                                if (typeof callback === 'function') {
+                                    callback();
+                                }
+                            }
                         },
                         // error
                         function(data, statusCode) {
                             var parent = that.parent();
                             parent.after(data);
                             parent.remove();
+
+                            if (typeof callback === 'function') {
+                                callback();
+                            }
                         }
                     );
 
@@ -302,6 +322,38 @@
             );
         },
 
+        /**
+         * Initiate/open the login modal window
+         */
+        authorise: function(callback) {
+            callback = (typeof callback === 'function') ? callback : $.noop;
+
+            window.fb_callback = window.twitter_callback = function(authenticated){
+                callback(authenticated);
+            };
+
+            RJM_COMMENT.authentication.modal('show');
+        },
+
+        onAuthorised: function(data) {
+//            console.log('in onAuthorised callback...');
+
+            if(data.authenticated) {
+//                console.log('authenticated, so add comment...');
+
+                RJM_COMMENT.authentication.modal('hide');
+//                bootbox.hideAll();
+
+                // Reload the form with correct csrf token now that user is authenticated
+                $('form.rjm_comment_comment_new_form').trigger('submit', [function() {
+                    // Submit again with correct csrf token...
+                    $('form.rjm_comment_comment_new_form').trigger('submit', [function() {
+                        $('form.rjm_comment_comment_new_form').parent().parent().show();
+                    }]);
+                }]).parent().parent().hide();
+            }
+        },
+
         appendComment: function(commentHtml, form) {
             var form_data = form.data();
 
@@ -409,6 +461,9 @@
             elem.innerHTML = threadObject.num_comments;
         }
     };
+
+    // Check if a thread container was configured. If not, use default.
+    RJM_COMMENT.authentication = window.rjm_comment_authentication || $('#comment-auth');
 
     // Check if a thread container was configured. If not, use default.
     RJM_COMMENT.thread_container = window.rjm_comment_thread_container || $('#rjm_comment_thread');

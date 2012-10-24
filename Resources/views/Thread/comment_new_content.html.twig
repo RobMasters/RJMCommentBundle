@@ -40,9 +40,11 @@
                 <div class="rjm_comment_submit">
                     {% block rjm_comment_form_submit %}
                         {% if parent is not null %}
-                            <input type="button" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_reply_cancel{% endtrans %}" class="rjm_comment_comment_reply_cancel" />
+                            <input type="button" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_reply_cancel{% endtrans %}" class="rjm_comment_comment_reply_cancel btn btn-danger" />
+                            <input type="submit" class="btn btn-success" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
+                        {% else %}
+                            <input name="submit" class="post-comment" id="add-comment" type="image" src="{{ asset('bundles/joecomment/images/post-button.png') }}" />
                         {% endif %}
-                        <input type="submit" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
                     {% endblock %}
                 </div>
 
