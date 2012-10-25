@@ -107,7 +107,41 @@ div.rjm_comment_form_errors {
     color: #ff0000;
 }
 div.rjm_comment_submit {
+    display: inline-block;
+    width: 100%;
     text-align: right;
+}
+div.rjm_comment_connect_to h4 {
+    margin: 0;
+    color: #A6475F;
+    font: 16px/16px 'LeagueGothicRegular',Arial,sans-serif;
+    text-transform: uppercase;
+}
+div.rjm_comment_connect_to {
+    float: left;
+    text-align: left;
+}
+div.rjm_comment_posting_as {
+    float: left;
+    text-align: left;
+}
+div.rjm_comment_posting_as .avatar {
+    display: inline-block;
+    margin-right: 5px;
+}
+div.rjm_comment_posting_as .avatar img {
+    width: 40px;
+    height: 40px;
+}
+div.rjm_comment_posting_as .rjm_comment_name h4 {
+    margin: 0;
+    color: #A6475F;
+    font: 16px/16px 'LeagueGothicRegular',Arial,sans-serif;
+    text-transform: uppercase;
+}
+div.rjm_comment_posting_as .rjm_comment_name {
+    display: inline-block;
+    vertical-align: middle;
 }
 div.rjm_comment_submit input {
     font-size: 1.2em;
@@ -125,4 +159,14 @@ div.rjm_comment_comment_voting {
 }
 div.rjm_comment_comment_score {
     display: inline-block;
+}
+div.rjm_comment_loader {
+    background: #EEEEEE url("/bundles/joeprototype/images/ajax-loader.gif") no-repeat center center;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 50;
 }

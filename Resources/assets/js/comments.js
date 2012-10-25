@@ -126,7 +126,7 @@
                         // success
                         function(data, statusCode) {
                             if (data.authorised === false) {
-                                RJM_COMMENT.authorise($.proxy(that.onAuthorised, that));
+                                that.prepend($('<div class="alert alert-error">You must connect to an account or specify your name and email address</div>'));
                             } else {
                                 RJM_COMMENT.appendComment(data, that);
 
@@ -319,6 +319,97 @@
                         }
                     );
                 }
+            );
+
+
+            // Connect buttons...
+
+            RJM_COMMENT.thread_container.on('click',
+                '.rjm_comment_connect_to_her',
+                function(e) {
+
+                }
+            );
+            RJM_COMMENT.thread_container.on('click',
+                '.rjm_comment_connect_to_facebook',
+                function(e) {
+                    e.preventDefault();
+                    var that = $(this);
+                    that.closest('form').css({position: 'relative'}).prepend($('<div class="rjm_comment_loader"></div>'));
+                    window.fb_callback = function(data) {
+                        if (data.authenticated) {
+                            // Reload the form with new CSRF token
+                            var commentBody = that.closest('.rjm_comment_submit').siblings('textarea').val();
+                            RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
+                                var parent = that.closest('form').parent();
+                                parent.after($(data));
+                                parent.parent().find('textarea').val(commentBody);
+                                parent.remove();
+                            });
+                        }
+                    }
+                    FB.login(function(response) {
+                        if (!response.authResponse) {
+                            $('.rjm_comment_loader').remove();
+                        }
+                    });
+                }
+            );
+            RJM_COMMENT.thread_container.on('click',
+                '.rjm_comment_connect_to_twitter',
+                function(e) {
+                    e.preventDefault();
+                    var that = $(this);
+                    that.closest('form').css({position: 'relative'}).prepend($('<div class="rjm_comment_loader"></div>'));
+                    window.twitter_callback = function(data) {
+                        if (data.authenticated) {
+                            // Reload the form with new CSRF token
+                            var commentBody = that.closest('.rjm_comment_submit').siblings('textarea').val();
+                            RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
+                                var parent = that.closest('form').parent();
+                                parent.after($(data));
+                                parent.parent().find('textarea').val(commentBody);
+                                parent.remove();
+                            });
+                        }
+                    }
+
+                    twttr.anywhere(function(T) {
+                        T.signIn();
+                    });
+                }
+            );
+
+
+            RJM_COMMENT.thread_container.on('click',
+                '.rjm_comment_not_you',
+                function(e) {
+                    e.preventDefault();
+                    var that = $(this),
+                        commentBody = that.closest('.rjm_comment_submit').siblings('textarea').val();
+
+                    that.closest('form').css({position: 'relative'}).prepend($('<div class="rjm_comment_loader"></div>'));
+                    FB.logout();
+
+                    $.get(Routing.generate('fos_user_security_logout'), function() {
+                        RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
+                            var parent = that.closest('form').parent();
+                            parent.after($(data));
+                            parent.parent().find('textarea').val(commentBody);
+                            parent.remove();
+                        });
+                    });
+                }
+            );
+
+
+        },
+
+        getNewCommentForm: function(parentId, body, callback) {
+            var getData = (parentId !== 0) ? {parentId: parentId} : {};
+            $.get(Routing.generate('rjm_comment_new_thread_comments', {id: $('#rjm_comment_thread').data('thread-id')}),
+                getData,
+                callback
             );
         },
 

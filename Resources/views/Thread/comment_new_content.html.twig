@@ -39,6 +39,34 @@
 
                 <div class="rjm_comment_submit">
                     {% block rjm_comment_form_submit %}
+                        {% if not is_granted('ROLE_USER') %}
+                            <div class="rjm_comment_connect_to">
+                                <h4>Connect to</h4>
+                                <div class="btn-group">
+                                    <a data-parent-id="{{ parent.id|default(0) }}" class="rjm_comment_connect_to_her btn btn-mini" href="#"><img src="{{ asset('bundles/joeprototype/images/social_icons/her.png') }}" /></a>
+                                    <a data-parent-id="{{ parent.id|default(0) }}" class="rjm_comment_connect_to_facebook btn btn-mini" href="#"><img src="{{ asset('bundles/joeprototype/images/social_icons/facebook.png') }}" /></a>
+                                    <a data-parent-id="{{ parent.id|default(0) }}" class="rjm_comment_connect_to_twitter btn btn-mini" href="#"><img src="{{ asset('bundles/joeprototype/images/social_icons/twitter.png') }}" /></a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="rjm_comment_posting_as">
+                                <div class="avatar">
+                                    {% if is_granted('ROLE_FACEBOOK') %}
+                                        <img src="https://graph.facebook.com/{{ app.user.facebookUid }}/picture" />
+                                    {% elseif is_granted('ROLE_TWITTER') %}
+                                        <img src="http://api.twitter.com/1/users/profile_image/{{ comment.author.twitterName }}.png" />
+                                    {% else %}
+                                        {# PUT GENERIC AVATAR HERE #}
+                                    {% endif %}
+                                </div>
+                                <div class="rjm_comment_name">
+                                    <h4>Posting as</h4>
+                                    {{ app.user.fullName }}&nbsp;&nbsp;
+                                    <a data-parent-id="{{ parent.id|default(0) }}" href="#" class="rjm_comment_not_you">Not you?</a>
+                                </div>
+                            </div>
+                        {% endif %}
+
                         {% if parent is not null %}
                             <input type="button" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_reply_cancel{% endtrans %}" class="rjm_comment_comment_reply_cancel btn btn-danger" />
                             <input type="submit" class="btn btn-success" value="{% trans from 'RJMCommentBundle' %}rjm_comment_comment_new_submit{% endtrans %}" />
