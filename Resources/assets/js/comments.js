@@ -108,12 +108,12 @@
         initializeListeners: function() {
             RJM_COMMENT.authentication.modal({show: false});
 
-            $('#sign-in-her-form_comment').submit(function(event) {
-                event.preventDefault();
-
-                var authForm = $(event.target);
-                $.post(authForm.attr('action'), authForm.serialize(), RJM_COMMENT.onAuthorised);
-            });
+//            $('#sign-in-her-form_comment').submit(function(event) {
+//                event.preventDefault();
+//
+//                var authForm = $(event.target);
+//                $.post(authForm.attr('action'), authForm.serialize(), RJM_COMMENT.onAuthorised);
+//            });
 
             RJM_COMMENT.thread_container.on('submit',
                 'form.rjm_comment_comment_new_form',
@@ -324,12 +324,43 @@
 
             // Connect buttons...
 
+            // Her dialog
             RJM_COMMENT.thread_container.on('click',
                 '.rjm_comment_connect_to_her',
                 function(e) {
+                    e.preventDefault();
+                    var that = $(this);
+                    that.closest('form').css({position: 'relative'}).prepend($('<div class="rjm_comment_loader"></div>'));
+                    RJM_COMMENT.modal = $('#comment-auth').modal({show: true}).on('hidden', function() {
+                        $('.rjm_comment_loader').remove();
+                    });
+                    RJM_COMMENT.modal.find('form').on('submit', function(e) {
+                        var authForm = $(e.target);
+                        e.preventDefault();
 
+                        $.post(authForm.attr('action'), authForm.serialize(), function(data) {
+                            RJM_COMMENT.modal.modal('hide');
+
+                            console.log('login form submitted...');
+                            console.log(data);
+
+                            if (data.authenticated) {
+                                RJM_COMMENT.refreshCsrf();
+
+                                // Reload the form with new CSRF token
+                                var commentBody = that.closest('.rjm_comment_submit').siblings('textarea').val();
+                                RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
+                                    var parent = that.closest('form').parent();
+                                    parent.after($(data));
+                                    parent.parent().find('textarea').val(commentBody);
+                                    parent.remove();
+                                });
+                            }
+                        });
+                    });
                 }
             );
+
             RJM_COMMENT.thread_container.on('click',
                 '.rjm_comment_connect_to_facebook',
                 function(e) {
@@ -338,6 +369,8 @@
                     that.closest('form').css({position: 'relative'}).prepend($('<div class="rjm_comment_loader"></div>'));
                     window.fb_callback = function(data) {
                         if (data.authenticated) {
+                            RJM_COMMENT.refreshCsrf();
+
                             // Reload the form with new CSRF token
                             var commentBody = that.closest('.rjm_comment_submit').siblings('textarea').val();
                             RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
@@ -363,6 +396,8 @@
                     that.closest('form').css({position: 'relative'}).prepend($('<div class="rjm_comment_loader"></div>'));
                     window.twitter_callback = function(data) {
                         if (data.authenticated) {
+                            RJM_COMMENT.refreshCsrf();
+
                             // Reload the form with new CSRF token
                             var commentBody = that.closest('.rjm_comment_submit').siblings('textarea').val();
                             RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
@@ -392,6 +427,8 @@
                     FB.logout();
 
                     $.get(Routing.generate('fos_user_security_logout'), function() {
+                        RJM_COMMENT.refreshCsrf();
+
                         RJM_COMMENT.getNewCommentForm(that.data('parent-id'), commentBody, function(data) {
                             var parent = that.closest('form').parent();
                             parent.after($(data));
@@ -424,6 +461,12 @@
             };
 
             RJM_COMMENT.authentication.modal('show');
+        },
+
+        refreshCsrf: function() {
+            $.get(Routing.generate('sonata_user_login_form', {formId: 'sign-in-her-form_comment'}), function(data) {
+                $('#sign-in-her-form_comment').replaceWith(data);
+            })
         },
 
         onAuthorised: function(data) {
@@ -558,6 +601,9 @@
 
     // Check if a thread container was configured. If not, use default.
     RJM_COMMENT.thread_container = window.rjm_comment_thread_container || $('#rjm_comment_thread');
+
+    // Check if a thread container was configured. If not, use default.
+    RJM_COMMENT.modal = window.rjm_comment_modal || $('#comment-auth');
 
     // AJAX via easyXDM if this is configured
     if(typeof window.rjm_comment_remote_cors_url != "undefined") {
