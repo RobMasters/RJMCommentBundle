@@ -157,11 +157,12 @@
                     var form_data = $(this).data();
                     var that = this;
 
+                    $(that).parent().addClass('rjm_comment_replying');
+
                     RJM_COMMENT.get(
                         form_data.url,
                         {parentId: form_data.parentId},
                         function(data) {
-                            $(that).parent().addClass('rjm_comment_replying');
                             $(that).after(data);
                         }
                     );
